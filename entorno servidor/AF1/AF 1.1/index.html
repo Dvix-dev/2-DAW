@@ -10,16 +10,24 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="favicon" href="assets/">
     <link rel="stylesheet" href="main.css">
-    <title>Título</title>
+    <title>Actividad 1.1</title>
 </head>
 
 <body>
     <main>
-        <form action="index.php" method="post">
-            <span>Numero 1</span>
-            <input type="text" name="num1" id="">
-            <span>Numero 2</span>
-            <input type="text" name="num2" id="">
+        <form action="main.php" method="post">
+            <div>
+                <span>Numero 1</span>
+                <input type="text" name="num1" required>
+            </div>
+            <div>
+                <span>Numero 2</span>
+                <input type="text" name="num2" required>
+            </div>
+            <div id="buttons">
+                <button type="submit">Enviar</button>
+                <button type="reset">Clear</button>
+            </div>
         </form>
     </main>
 </body>
