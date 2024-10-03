@@ -1,0 +1,67 @@
+<!-- Actividad 7
+Realizar una pequeña aplicación en JavaScript que muestre lo siguiente:
+Tabla de multiplicar del 7. Tabla de sumar del 8. Tabla de dividir del 9.
+Utilizar los tres tipos de bucles que hay en JavaScript (para cada número un tipo de bucle diferente).
+Que tu aplicación también imprima el resultado de las siguientes operaciones empleando desplazamiento de bits:
+125 / 8 =
+40 x 4=
+25 / 2=
+10 x 16= -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.7</title>
+</head>
+<body>
+    <script>
+        var numeromulti = 7
+        var tablamulti = ""
+
+        for (i=0; i<=10; i++){
+            var numeromultiplicado = numeromulti * i;
+            tablamulti += numeromulti + "x" + i + "=" + numeromultiplicado + "\n";
+        }
+
+        alert(tablamulti);
+
+        // ------------
+        var numerosuma = 8;
+        var x = 1;
+        var tablasuma = "";
+
+        while (x<=10){
+            var numerosumado = numerosuma + x;
+            tablasuma += numerosuma + "+" + x + "=" + numerosumado + "\n"
+            x++
+        }
+
+        alert(tablasuma);
+
+        // -------------
+        var numerodivi = 9;
+        var y = 1;
+        var tabladivi = "";
+
+        do {
+            var numerodividido = numerodivi / y;
+            tabladivi += numerodivi + "/" + y + "=" + numerodividido + "\n"
+            y++
+        } while (y<=10);
+
+        alert(tabladivi);
+        
+        // -------------
+        var opsdespbits = "";
+        opsdespbits += "125 / 8 = " + (125 >> 3) + "\n"
+        opsdespbits += "40 x 4 = " + (40 << 2) + "\n"
+        opsdespbits += "25 / 2 = " + (25 >> 1) + "\n"
+        opsdespbits += "10 x 16 = " + (10 << 4)
+
+        alert(opsdespbits)
+
+    </script>
+</body>
+</html>

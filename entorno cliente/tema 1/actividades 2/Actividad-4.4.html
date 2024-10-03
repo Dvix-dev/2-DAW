@@ -1,0 +1,114 @@
+<!-- Actividad 4
+Crea un control parental para que no se pueda entrar en una página.
+Se pedirá al usuario que escriba el apellido del primer presidente de la democracia (si no sabes quién fue, busca en Google ;)
+Para guardar un valor del usuario utilizamos el siguiente código:
+var respuesta = prompt (“Mensaje”);
+Mientras el usuario no introduzca el valor correcto, el mensaje seguirá saliendo.
+Comenta el código con los comentarios que estimes necesarios.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fafafa;
+        }
+
+        header {
+            background-color: #ffffff;
+            border-bottom: 1px solid #dbdbdb;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        header h1 {
+            font-size: 24px;
+            color: #262626;
+            margin: 0;
+        }
+
+        header input {
+            padding: 8px;
+            width: 250px;
+            border: 1px solid #dbdbdb;
+            border-radius: 5px;
+        }
+
+        .main {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .post {
+            background-color: #fff;
+            border: 1px solid #dbdbdb;
+            border-radius: 5px;
+            width: 400px;
+            margin-bottom: 20px;
+            padding: 10px;
+        }
+
+        .post img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .post p {
+            margin: 10px 0 0;
+        }
+
+        footer {
+            background-color: #ffffff;
+            border-top: 1px solid #dbdbdb;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+    <title>4.4</title>
+</head>
+<body>
+    <header>
+        <h1>Instagram</h1>
+        <input type="text" placeholder="Buscar...">
+    </header>
+    
+    <div class="main">
+        <div class="post">
+            <img src="https://via.placeholder.com/400x300" alt="Post 1">
+            <p>Descripción del post 1</p>
+        </div>
+        <div class="post">
+            <img src="https://via.placeholder.com/400x300" alt="Post 2">
+            <p>Descripción del post 2</p>
+        </div>
+        <div class="post">
+            <img src="https://via.placeholder.com/400x300" alt="Post 3">
+            <p>Descripción del post 3</p>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Instagram</p>
+    </footer>
+    <script>
+        var answer = "suarez"
+        var userans = prompt ("CONTROL PARENTAL\nIntroduzca el apellido del primer presidente de la democracia").toLowerCase()
+        while (userans != answer) {
+            var userans = prompt ("CONTROL PARENTAL\nIntroduzca el apellido del primer presidente de la democracia").toLowerCase()
+        }
+    </script>
+</body>
+</html>

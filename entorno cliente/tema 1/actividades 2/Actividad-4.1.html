@@ -1,0 +1,34 @@
+<!-- Crea un programa que pida al usuario que introduzca una edad y muestre el siguiente mensaje en función del número introducido:
+·        0-12: Niño
+·        13-26: Joven
+·        26-60: Adulto
+·        >60: Jubilado
+Para guardar un valor del usuario utilizamos el siguiente código:
+var respuesta = prompt (“Mensaje”);
+También comprobará que no se meta un número menor de 0. Comenta el código con los comentarios que estimes necesarios.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4.1</title>
+</head>
+<body>
+    <script>
+        var edad = prompt("Introduzca su edad")
+
+        if (edad < 0){
+            alert("No puedes tener menos de 0 años")
+        } else if (edad >= 0 && edad < 13){
+            alert("Eres un niño")
+        } else if (edad >= 13 && edad < 26){
+            alert("Eres un joven")
+        } else if (edad >= 26 && edad < 60){
+            alert("Eres un adulto")
+        } else {
+            alert("Eres un jubilado")
+        }
+    </script>
+</body>
+</html>

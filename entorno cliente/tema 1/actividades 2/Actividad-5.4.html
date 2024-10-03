@@ -1,0 +1,43 @@
+<!-- Actividad 4:
+Realiza un script que solicite al usuario introducir algunas de estas palabras:
+    - casa
+    - mesa
+    - perro
+    - gato
+Luego mostrar la palabra traducida en inglés.
+Por ejemplo, si se ingresa 'casa' debemos mostrar el texto 'house' en la página. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.4</title>
+</head>
+<body>
+    <script>
+        var userchoice = prompt("Introduzca una palabra de las siguientes:\n-Casa\n-Mesa\n-Perro\n-Gato").toLowerCase()
+
+        switch (userchoice) {
+            case "casa":
+                document.write("House")
+                break;
+
+            case "mesa":
+                document.write("Table")
+                break;
+
+            case "perro":
+                document.write("Dog")
+                break;
+
+            case "gato":
+                document.write("Cat")
+                break;
+        
+            default:
+                alert("La opcion especificada no esta entre las solicitadas.");
+        }
+    </script>
+</body>
+</html>

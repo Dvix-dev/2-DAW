@@ -1,0 +1,25 @@
+<!-- Actividad 5:
+Realiza un script en el que un usuario introduzca una frase (ésta puede contener todo tipo de caracteres), ir mostrando todos los caracteres uno a uno, excepto si es un número que lo obviará. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>5.5</title>
+</head>
+<body>
+    <script>
+        var userchoice = prompt("Introduzca una frase con algún número");
+        var phrase = "";
+
+        for (var char = 0; char < userchoice.length; char++) {
+            if (isNaN(userchoice[char]) || userchoice[char] == " ") {
+                phrase += userchoice[char];
+            }
+        }
+
+        alert(phrase);
+    </script>
+</body>
+</html>
