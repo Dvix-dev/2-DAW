@@ -5,6 +5,10 @@ body {
     justify-content: center;
     align-items: center;
     margin: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10pt;
+    color: black;
+    background-color: gray;    
 }
 
 main {
@@ -34,8 +38,7 @@ main {
 }
 
 #titulo {
-    color: black;
-    background-color: grey;
+    color: darkgrey;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    font-size: 10pt;
+    font-size: 40pt;
 }
