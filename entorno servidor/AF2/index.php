@@ -39,7 +39,7 @@
                             
                             for ($columna = 1; $x <= $num; $columna++) {
                                 for ($fila = 1; $fila <= $columna && $x <= $num; $fila++) {
-                                    echo $x . " ";
+                                    echo "<span>".$x."</span>";
                                     $x++;
                                 }
                                 echo "<br>";
