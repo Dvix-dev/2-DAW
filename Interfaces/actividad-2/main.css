@@ -1,0 +1,41 @@
+body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.naranja {
+    color: orange;
+    background-color: blue;
+}
+
+.consola {
+    font-family: Courier, monospace;
+    color: lime;
+    background-color: black;
+}
+
+.importante {
+    text-decoration: none;
+}
+
+.importante:hover {
+    color: yellow;
+}
+
+#titulo {
+    color: black;
+    background-color: grey;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10pt;
+}
