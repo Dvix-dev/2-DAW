@@ -3,6 +3,14 @@
     --color_secundario: #00bfff;
 }
 
+body {
+    background-color: #eff2f6;
+}
+
+header {
+    background-color: #ffffff;
+}
+
 #logo {
     filter: hue-rotate(115deg);
 }
@@ -34,16 +42,15 @@ div.row > div {
 .container {
     width: 60%;
     height: fit-content;
-    background-color: whitesmoke;
+    background-color: #ffffffaf;
     padding: 10px;
 }
 
 .accordion {
     width: 60%;
-    background-color: whitesmoke;
     margin-bottom: 50px;
 }
 
 .accordion * {
-    background-color: whitesmoke;
+    background-color: #ffffffaf;
 }
