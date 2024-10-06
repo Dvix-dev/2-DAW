@@ -63,9 +63,9 @@
         </div>
     </main>
     <script>
-        function Visible() {
-            document.getElementById('php').style.display = 'flex';
-        }
+        // function Visible() {
+        //     document.getElementById('php').style.display = 'flex';
+        // }
 
         function Clear() {
             document.getElementById('php').innerHTML = '';
