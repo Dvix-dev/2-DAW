@@ -34,11 +34,27 @@ h3 {
     font-size: 22px;
 }
 
+#input-div {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
 input {
-    width: 150px;
+    width: 130px;
     height: 20px;
+    margin-right: 10px;
     padding: 3px;
     border: 0;
+    border-radius: 3px;
+    outline: none;
+}
+
+#trash-btn {
+    width: 30px;
+    height: 30px;
+    background-color: red;
+    padding: 0;
 }
 
 #buttons {
@@ -71,7 +87,10 @@ li {
 
 #php > span {
     border: 1px solid black;
-    width: 20px;
+    background-color: deepskyblue;
+    display: inline-block;
+    text-align: center;
+    min-width: 20px;
     margin: 2px;
     padding: 1px;
 }
