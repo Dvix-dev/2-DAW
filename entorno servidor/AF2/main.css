@@ -1,10 +1,14 @@
+* {
+    font-family: sans-serif;
+}
+
 body {
     display: flex;
     justify-content: center;
-    width: 100%;
-    height: 100vh;
     align-items: center;
-    font-family: sans-serif;
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
 }
 
 main {
@@ -19,7 +23,7 @@ form {
     padding: 10px;
     background-color: rgb(235, 235, 235);
     border-radius: 10px;
-    box-shadow: 4px 2px 3px 2px #00000085;
+    border: 1px solid rgb(176 176 176 / 80%);
     width: fit-content;
 }
 
@@ -55,6 +59,9 @@ input {
     height: 30px;
     background-color: red;
     padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #buttons {
@@ -81,7 +88,7 @@ li {
     padding: 10px;
     background-color: rgb(235, 235, 235);
     border-radius: 10px;
-    box-shadow: 4px 2px 3px 2px #00000085;
+    border: 1px solid rgb(176 176 176 / 80%);
     width: fit-content;
 }
 
