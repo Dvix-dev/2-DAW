@@ -1,5 +1,3 @@
-
-
 function IMC() {
     const contenedor = document.getElementById('center')
 
@@ -37,17 +35,87 @@ function IMC() {
 
 }
 
-// function FCM() {
-//     const contenedor = document.getElementById('center')
+
+function FCM() {
+    const contenedor = document.getElementById('center');
+    contenedor.innerHTML = '';
+
+    let edad = prompt("Por favor, ingresa tu edad:");
+    let sexo = prompt("Por favor, ingresa tu sexo (hombre/mujer):").toLowerCase();
+
+    if (isNaN(edad) || edad <= 0 || (sexo != 'hombre' && sexo != 'mujer')) {
+        contenedor.innerHTML = 'Entrada inválida. Por favor, recarga la página y vuelve a intentarlo.';
+        return;
+    }
+
+    let fcm;
+    if (sexo === 'hombre') {
+        fcm = 220 - edad;
+    } else {
+        fcm = 226 - edad;
+    }
+
+    contenedor.innerHTML = `<h1 class="FCM">Frecuencia Cardíaca Máxima</h1>
+                            <p class="FCM">Su FCM es de <b>${fcm} bpm</b></p>
+                            <h3 class="FCM">Zonas de Entrenamiento:</h3>`;
+
+    const zonas = {
+        recuperacion: { min: fcm * 0.6, max: fcm * 0.7 },
+        aerobica: { min: fcm * 0.7, max: fcm * 0.8 },
+        anaerobica: { min: fcm * 0.8, max: fcm * 0.9 },
+        lineaRoja: { min: fcm * 0.9, max: fcm }
+    };
+
+    contenedor.insertAdjacentHTML('beforeend', `
+        <ul class="FCM">
+            <li>Zona de Recuperación (60%-70%): ${zonas.recuperacion.min.toFixed(2)} - ${zonas.recuperacion.max.toFixed(2)} bpm</li>
+            <li>Zona Aeróbica (70%-80%): ${zonas.aerobica.min.toFixed(2)} - ${zonas.aerobica.max.toFixed(2)} bpm</li>
+            <li>Zona Anaeróbica (80%-90%): ${zonas.anaerobica.min.toFixed(2)} - ${zonas.anaerobica.max.toFixed(2)} bpm</li>
+            <li>Línea Roja (90%-100%): ${zonas.lineaRoja.min.toFixed(2)} - ${zonas.lineaRoja.max.toFixed(2)} bpm</li>
+        </ul>
+    `);
+    
+
+}
 
 
-// }
+function SoccerCat() {
+    const contenedor = document.getElementById('center');
+    contenedor.innerHTML = '';
+    const añoActual = new Date().getFullYear();
+    let añoNacimiento = prompt("Ingresa tu año de nacimiento:");
 
-// function SoccerCat() {
-//     const contenedor = document.getElementById('center')
+    if (isNaN(añoNacimiento) || añoNacimiento < 1900 || añoNacimiento > añoActual) {
+        contenedor.innerHTML = 'Entrada inválida. Por favor, recarga la página y vuelve a intentarlo.';
+        return;
+    }
+    const edad = añoActual - añoNacimiento;
+    let categoria;
 
+    if (edad <= 6) {
+        categoria = 'Micros';
+    } else if (edad <= 12) {
+        categoria = 'Infantil';
+    } else if (edad <= 17) {
+        categoria = 'Juvenil';
+    } else {
+        categoria = 'Senior';
+    }
+    contenedor.innerHTML = `<h1 class="categoria">Categoria Futbol</h1>
+                            <p class="categoria">Tienes ${edad} años y perteneces a la categoría <b>${categoria}</b>.</p>
+                            <h3 class="categoria">Categorías Disponibles:</h3>`;
+ 
+    const categorias = ['Micros', 'Infantil', 'Juvenil', 'Senior'];
+    const listaCategorias = categorias.map(cat => {
+        if (cat === categoria) {
+            return `<li class="destacada">${cat}</li>`;
+        } else {
+            return `<li>${cat}</li>`;
+        }
+    }).join('');
+    contenedor.insertAdjacentHTML('beforeend', `<ul class="categoria">${listaCategorias}</ul>`);
+}
 
-// }
 
 // function TimeTable() {
 //     const contenedor = document.getElementById('center')
