@@ -4,7 +4,7 @@ function IMC() {
     contenedor.innerHTML = ('')
 
     let height = prompt("Introduzca su Altura (cm)")
-    let weight = prompt("Introduzca su peso (kg)") 
+    let weight = prompt("Introduzca su Peso (kg)") 
     
     height/= 100
 
@@ -29,7 +29,7 @@ function IMC() {
     } else if (IMC >= 40) {
         contenedor.insertAdjacentHTML('beforeend', '<h2 class="IMC" style="color: blue;">Obesidad (Tipo III)</h2>');
     } else {
-        contenedor.innerHTML = ('Algo salió mal, compruebe que los datos introducidos son correctos e intentelo de nuevo')
+        contenedor.innerHTML = ('Comprueba los datos e intentelo de nuevo')
     }
 
 
@@ -40,11 +40,11 @@ function FCM() {
     const contenedor = document.getElementById('center');
     contenedor.innerHTML = '';
 
-    let edad = prompt("Por favor, ingresa tu edad:");
-    let sexo = prompt("Por favor, ingresa tu sexo (hombre/mujer):").toLowerCase();
+    let sexo = prompt("Ingresa tu sexo (hombre/mujer):").toLowerCase();
+    let edad = prompt("Ingresa tu edad:");
 
     if (isNaN(edad) || edad <= 0 || (sexo != 'hombre' && sexo != 'mujer')) {
-        contenedor.innerHTML = 'Entrada inválida. Por favor, recarga la página y vuelve a intentarlo.';
+        contenedor.innerHTML = 'Comprueba los datos e intentalo de nuevo.';
         return;
     }
 
@@ -86,7 +86,7 @@ function SoccerCat() {
     let añoNacimiento = prompt("Ingresa tu año de nacimiento:");
 
     if (isNaN(añoNacimiento) || añoNacimiento < 1900 || añoNacimiento > añoActual) {
-        contenedor.innerHTML = 'Entrada inválida. Por favor, recarga la página y vuelve a intentarlo.';
+        contenedor.innerHTML = `Ingrese un año válido (entre 1900 y ${añoActual}).`;
         return;
     }
     const edad = añoActual - añoNacimiento;
@@ -117,8 +117,32 @@ function SoccerCat() {
 }
 
 
-// function TimeTable() {
-//     const contenedor = document.getElementById('center')
-
-
-// }
+function TimeTable() {
+    const contenedor = document.getElementById('center')
+    contenedor.innerHTML = 
+        `
+        <h1>Horarios</h1>
+        <div id="horarios">
+            <table border="1px">
+                <thead>MAÑANA</thead>
+                <tbody>
+                    <tr><td></td><td>Lunes</td><td>Martes</td><td>Miercoles</td><td>Jueves</td><td>Viernes</td></tr>
+                    <tr><td>9:00 - 11:00</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>11:00 - 13:00</td><td></td><td></td><td></td><td></td><td></td></tr>
+                    <tr><td>13:00 - 15:00</td><td></td><td></td><td></td><td></td><td></td></tr>
+                </tbody>
+            </table>
+            <table border="1px">
+                <thead>TARDE</thead>
+                <tbody>
+                    <tr><td></td><td>Lunes</td><td>Martes</td><td>Miercoles</td><td>Jueves</td><td>Viernes<td>Sabado</td><td>Domingo</td></td></tr>
+                    <tr><td>16:00 - 17:00</td><td></td><td></td><td></td><td></td><td><td></td><td></td></td></tr>
+                    <tr><td>17:00 - 18:00</td><td></td><td></td><td></td><td></td><td><td></td><td></td></td></tr>
+                    <tr><td>18:00 - 19:00</td><td></td><td></td><td></td><td></td><td><td></td><td></td></td></tr>
+                    <tr><td>19:00 - 20:00</td><td></td><td></td><td></td><td></td><td><td></td><td></td></td></tr>
+                    <tr><td>20:00 - 21:00</td><td></td><td></td><td></td><td></td><td><td></td><td></td></td></tr>
+                </tbody>
+            </table>
+        </div>
+        `
+}

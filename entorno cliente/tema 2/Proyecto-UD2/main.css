@@ -171,3 +171,18 @@ p.IMC {
 h2.IMC {
     margin: 0;
 }
+
+/* ------Horarios------- */
+table {
+    text-align: center;
+}
+
+table:not(:last-of-type) {
+    margin-bottom: 20px;
+}
+
+div#horarios {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
