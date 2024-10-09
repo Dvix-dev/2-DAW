@@ -103,17 +103,32 @@ function SoccerCat() {
     }
     contenedor.innerHTML = `<h1 class="categoria">Categoria Futbol</h1>
                             <p class="categoria">Tienes ${edad} años y perteneces a la categoría <b>${categoria}</b>.</p>
-                            <h3 class="categoria">Categorías Disponibles:</h3>`;
- 
-    const categorias = ['Micros', 'Infantil', 'Juvenil', 'Senior'];
-    const listaCategorias = categorias.map(cat => {
-        if (cat === categoria) {
-            return `<li class="destacada">${cat}</li>`;
-        } else {
-            return `<li>${cat}</li>`;
-        }
-    }).join('');
-    contenedor.insertAdjacentHTML('beforeend', `<ul class="categoria">${listaCategorias}</ul>`);
+                            <h3 class="categoria">Categorías Disponibles:</h3>
+                            <ul>
+                                <li id="micros">Micros</li>
+                                <li id="infantil">Infantil</li>
+                                <li id="juvenil">Juvenil</li>
+                                <li id="senior">Senior</li>
+                            </ul>
+                            `;
+    if (categoria == 'Micros') {
+        document.getElementById('micros').style.backgroundColor = 'yellow'
+    } else if (categoria == 'Infantil') {
+        document.getElementById('infantil').style.backgroundColor = 'yellow'
+    } else if (categoria == 'Juvenil') {
+        document.getElementById('juvenil').style.backgroundColor = 'yellow'
+    } else {
+        document.getElementById('senior').style.backgroundColor = 'yellow'
+    }
+    // const categorias = ['Micros', 'Infantil', 'Juvenil', 'Senior'];
+    // const listaCategorias = categorias.map(cat => {
+    //     if (cat === categoria) {
+    //         return `<li class="destacada">${cat}</li>`;
+    //     } else {
+    //         return `<li>${cat}</li>`;
+    //     }
+    // }).join('');
+    // contenedor.insertAdjacentHTML('beforeend', `<ul class="categoria">${listaCategorias}</ul>`);
 }
 
 
