@@ -56,7 +56,7 @@ function FCM() {
     }
 
     contenedor.innerHTML = `<h1 class="FCM">Frecuencia Cardíaca Máxima</h1>
-                            <p class="FCM">Su FCM es de <b>${fcm} bpm</b></p>
+                            <p class="FCM">Su FCM es de <b>${fcm} lpm</b></p>
                             <h3 class="FCM">Zonas de Entrenamiento:</h3>`;
 
     const zonas = {
@@ -68,10 +68,10 @@ function FCM() {
 
     contenedor.insertAdjacentHTML('beforeend', `
         <ul class="FCM">
-            <li>Zona de Recuperación (60%-70%): ${zonas.recuperacion.min.toFixed(2)} - ${zonas.recuperacion.max.toFixed(2)} bpm</li>
-            <li>Zona Aeróbica (70%-80%): ${zonas.aerobica.min.toFixed(2)} - ${zonas.aerobica.max.toFixed(2)} bpm</li>
-            <li>Zona Anaeróbica (80%-90%): ${zonas.anaerobica.min.toFixed(2)} - ${zonas.anaerobica.max.toFixed(2)} bpm</li>
-            <li>Línea Roja (90%-100%): ${zonas.lineaRoja.min.toFixed(2)} - ${zonas.lineaRoja.max.toFixed(2)} bpm</li>
+            <li>Zona de Recuperación (60%-70%): ${zonas.recuperacion.min.toFixed(1)} - ${zonas.recuperacion.max.toFixed(1)} lpm</li>
+            <li>Zona Aeróbica (70%-80%): ${zonas.aerobica.min.toFixed(1)} - ${zonas.aerobica.max.toFixed(1)} lpm</li>
+            <li>Zona Anaeróbica (80%-90%): ${zonas.anaerobica.min.toFixed(1)} - ${zonas.anaerobica.max.toFixed(1)} lpm</li>
+            <li>Línea Roja (90%-100%): ${zonas.lineaRoja.min.toFixed(1)} - ${zonas.lineaRoja.max.toFixed(1)} lpm</li>
         </ul>
     `);
     
