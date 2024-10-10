@@ -1,0 +1,55 @@
+* {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+img {
+    width: 400px;
+    height: 200px;
+}
+
+table {
+    border-collapse: collapse;
+}
+
+td, th {
+    padding: 10px;
+}
+
+h1 {
+    color: #333;
+    font-size: 20px;
+}
+
+h2 {
+    color: #666;
+    font-size: 16px;
+}
+
+thead > tr > th {
+    color: white;
+    background-color: #666;
+    font-size: 12px;
+}
+
+a {
+    color: blue;
+    font-size: 12px ;
+}
+
+p, li, td {
+    color: #000;
+    font-size: 12px;
+}  
+
+caption {
+    color: #000;
+    font-size: 14px;
+}
+
+tbody {
+    background-color: #fff;
+}
+
+tfoot {
+    background-color: #ccc !important;
+}
