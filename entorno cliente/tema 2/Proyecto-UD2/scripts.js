@@ -120,15 +120,6 @@ function SoccerCat() {
     } else {
         document.getElementById('senior').style.backgroundColor = 'yellow'
     }
-    // const categorias = ['Micros', 'Infantil', 'Juvenil', 'Senior'];
-    // const listaCategorias = categorias.map(cat => {
-    //     if (cat === categoria) {
-    //         return `<li class="destacada">${cat}</li>`;
-    //     } else {
-    //         return `<li>${cat}</li>`;
-    //     }
-    // }).join('');
-    // contenedor.insertAdjacentHTML('beforeend', `<ul class="categoria">${listaCategorias}</ul>`);
 }
 
 
