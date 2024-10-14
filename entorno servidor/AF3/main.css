@@ -1,0 +1,53 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    font-family: monospace;
+    background-color: #f0eded;
+    margin: 0;
+}
+
+h1 {
+    font-size: 45px;
+    -webkit-text-stroke: 2px black;
+    color: transparent;
+    margin: 10px;
+}
+
+h2 {
+    font-size: 25px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.tarjeta {
+    display: flex;
+    height: fit-content;
+    width: 570px;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 15px;
+    border: 1px solid #dadde0;
+}
+
+.contenedor_arrays {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-content: space-around;
+}
+
+#tarjeta-array_original {
+    width: fit-content;
+    padding-inline: 30px;
+    margin-bottom: 40px;
+}
+
+#array_original {
+    height: fit-content;
+}
