@@ -55,28 +55,25 @@
                             }
                         }
 
-                        // for ($columna = 1; $num <= $max; $columna++) {
-                        //     for ($fila = 1; $fila <= $columna && $num <= $max; $fila++) {
-                        //         echo "<span>".$num."</span>";
-                        //         $num++;
-                        //     }
-                        //     echo "<br>";
-                        // }
+                        echo "<table border='solid 1px black' style='text-align:center;border-collapse:collapse;'>";
+                        foreach ($matriz as $fila){
+                            echo "<tr>";
+                            foreach ($fila as $numero) {
+                                echo "<td style='padding:3px;'>";
+                                echo $numero;
+                                echo "</td>";
+                            }
+                        echo "</tr>";
+                        }
+                        echo "</table>";
 
-                        $cont1 = 0;
-                        $cont1 = 0;
+                        echo '<button id="show" type="button" onclick="ShowRawArray()">Mostrar Array Raw</button>';
 
-                        for ($a = 1;){
-
-                        };
-
-                        echo '';
-
-                        echo '<pre>';
+                        echo '<pre id="raw_array">';
                         print_r($matriz);
                         echo '</pre>';
-                    } 
-                } else {echo "El valor introducido no es un numero binario";}
+                    } else {echo "El valor introducido no es un numero binario";}
+                } else {echo "El campo no puede quedar vacio";}
 
                 function is_binary($num){
                     if (strlen($num) != 7){
@@ -101,6 +98,10 @@
         function Clear() {
             document.getElementById('php').style.display = 'none';
             document.getElementById('php').innerHTML = '';
+        }
+
+        function ShowRawArray() {
+            document.getElementById('raw_array').style.display = 'block';
         }
     </script>
 </body>

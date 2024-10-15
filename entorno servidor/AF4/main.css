@@ -77,6 +77,10 @@ button {
     cursor: pointer;
 }
 
+button:hover {
+    background-color: dodgerblue;
+}
+
 li {
     list-style: none;
 }
@@ -99,4 +103,21 @@ li {
     min-width: 20px;
     margin: 2px;
     padding: 1px;
+}
+
+table {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+td {
+    font-size: xx-large;
+}
+
+#raw_array {
+    display: none;
+}
+
+button#show {
+    width: fit-content;
 }
