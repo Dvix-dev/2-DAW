@@ -59,6 +59,7 @@
     $keys = IndiceArray($array1);
     
     echo '<h1>ACTIVIDAD PUNTUABLE 3</h1>';
+    echo '<div class="row">';
     echo '<div class="tarjeta">';
     echo '<h2>ARRAY_KEYS</h2>';
     echo '<div class="contenedor_arrays">';
@@ -74,6 +75,7 @@
     echo '<pre class="contenedor_arrays" id="array_original">';
     print_r($array1);
     echo '</pre>';
+    echo '</div>';
     echo '</div>';
     ?>
 </body>

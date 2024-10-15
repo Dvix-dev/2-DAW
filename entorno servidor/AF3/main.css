@@ -21,6 +21,11 @@ h2 {
     margin-bottom: 10px;
 }
 
+.row {
+    display: flex;
+    gap: 20px;
+}
+
 .tarjeta {
     display: flex;
     height: fit-content;
