@@ -17,7 +17,7 @@
     <main>
         <form action="index.php" method="post">
             <div>
-                <h3>Iniciar Sesión</h3>
+                <h3>Fibonacci</h3>
             </div>
             <div id="buttons">
                 <button type="submit">Generar</button>

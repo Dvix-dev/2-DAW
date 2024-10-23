@@ -53,14 +53,14 @@
         print_r($numeros);
         echo '</pre>';
 
-            function no_se_repite($num,$array){
-                for ($i=0; $i < count($array); $i++) { 
-                    if ($num == $array[$i]) {
-                        return false;
-                    }
-                }  
-                return true;
-            }                         
+        function no_se_repite($num,$array){
+            for ($i=0; $i < count($array); $i++) { 
+                if ($num == $array[$i]) {
+                    return false;
+                }
+            }  
+            return true;
+        }                         
         ?>
     </div>
     </main>
