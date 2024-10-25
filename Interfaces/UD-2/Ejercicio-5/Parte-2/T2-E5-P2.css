@@ -1,0 +1,16 @@
+#cabecera {
+    padding: 1em;
+}
+
+#menu {
+    padding: .5em;
+    margin-bottom: .5em;
+}
+
+#noticias,#publicidad,#principal,#secundario,#pie {
+    padding: .5em;
+}
+
+#pie {
+    padding-inline: 0;
+}

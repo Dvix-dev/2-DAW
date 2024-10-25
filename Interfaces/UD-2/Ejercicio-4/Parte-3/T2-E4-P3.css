@@ -1,0 +1,24 @@
+h1 {
+    border: 2px solid #00F;
+    padding: 10px;
+    margin-block: 30px;
+}
+
+h2 {
+    border: 2px solid #AAA;
+    padding: 5px;
+    margin-block: 15px;
+}
+
+ul {
+    border: 2px solid #0F0;
+}
+
+ul > li {
+    margin-block: 15px;
+}
+
+body {
+    padding-inline: 10px;
+}
+

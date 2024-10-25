@@ -1,0 +1,59 @@
+h1#titulo {
+    color: darkcyan;
+}
+
+strong {
+    color: red;
+}
+
+span.destacado {
+    color: orange;
+}
+
+h2#subtitulo {
+    color: blue;
+}
+
+a {
+    color: red;
+}
+
+a em {
+    color: blue;
+}
+
+span.especial {
+    color: purple;
+}
+
+caption {
+    color: blue;
+}
+
+th {
+    color: red;
+}
+
+th.especial {
+    color: orange;
+}
+
+td {
+    color: green;
+}
+
+td strong {
+    color: orange;
+}
+
+#adicional {
+    color: olive;
+}
+
+span#especial {
+    color: fuchsia;
+}
+
+p a {
+    color: green;
+}

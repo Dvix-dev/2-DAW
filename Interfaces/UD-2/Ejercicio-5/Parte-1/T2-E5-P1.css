@@ -1,0 +1,30 @@
+body {
+    width: 960px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+#content {
+    display: flex;
+}
+
+#col1 {
+    width: 260px;
+}
+
+#col2 {
+    width: 700px;
+}
+
+.cols-3 {
+    display: inline-flex;
+    list-style: none;
+    padding: 0;
+}
+
+.cols-3 > li {
+    width: calc(100%/3);
+}
