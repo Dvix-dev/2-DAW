@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="David Escutia de Haro">
+    <meta name="author" content="Dvix">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="favicon" href="assets/">
+    <link rel="stylesheet" href="main.css">
+    <title>Puntuable 5.3</title>
+</head>
+
+<body>
+    <main>
+        <form action="login.php" method="post">
+            <div>
+                <h3>Inicio de Sesión</h3>
+            </div>
+            <div><input type="text" name="nombre" placeholder="Nombre"></div>
+            <div><input type="text" name="apellido" placeholder="Apellido"></div>
+            <div><input type="text" name="contraseña" placeholder="Contraseña"></div>
+            <div id="buttons">
+                <button type="submit">Login</button>
+                <button type="reset">Clear</button>
+            </div>
+        </form>
+    </main>
+    <script>
+        function Clear() {
+            document.getElementById('php').style.display = 'none';
+            document.getElementById('php').innerHTML = '';
+        }
+
+        function ShowRawArray() {
+            document.getElementById('raw_array').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
