@@ -1,0 +1,29 @@
+.title {
+    font-size: xxx-large;
+}
+
+.textoverde {
+    color: green;
+}
+
+.textoazul {
+    color: blue
+}
+
+.fondoverde {
+    background-color: green;
+}
+
+.fondoazul {
+    background-color: blue;
+}
+
+.textoverdefondoazul {
+    color: green;
+    background-color: blue;
+}
+
+.textoazulfondoverde {
+    color: blue;
+    background-color: green;
+}

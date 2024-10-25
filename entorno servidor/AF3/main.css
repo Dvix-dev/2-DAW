@@ -56,3 +56,8 @@ h2 {
 #array_original {
     height: fit-content;
 }
+
+span:hover {
+    transform: scale(1.2);
+    cursor: zoom-in;
+}
