@@ -20,7 +20,7 @@
         </button>
         <form action="index.php" method="post">
             <div>
-                <h3>Posiciones Dados</h3>
+                <h3>Indice de Tiradas</h3>
             </div>
             <div id="buttons">
                 <button type="submit">Lanzar dados</button>
@@ -93,6 +93,7 @@
 
                 echo "<h1>DEBUG ZONE ⚠️</h1>";
 
+                echo "<h3>Tiradas</h3>";
                 echo "<pre>";
                 print_r($tiradas);
                 echo "</pre>";

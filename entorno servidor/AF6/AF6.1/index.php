@@ -20,7 +20,7 @@
         </button>
         <form action="index.php" method="post">
             <div>
-                <h3>Gambling Generator</h3>
+                <h3>Gambling Generator 🎲</h3>
             </div>
             <div id="buttons">
                 <button type="submit">Lanzar dados</button>
@@ -71,13 +71,14 @@
 
             function premiar($puntuaciones) {
             // Funcion que ordena y asigna el premio a los jugadores
-                $medallas = ["Oro", "Plata", "Bronce", "Nada"];
+                $medallas = ["Oro🥇", "Plata🥈", "Bronce🥉", "Nada🃏"];
                 $resultado = [];
                 
                 arsort($puntuaciones);
             
                 $i = 0;
                 foreach ($puntuaciones as $jugador => $puntos) {
+                    
                     $resultado[] = ['jugador' => 'Jugador '.$jugador + 1, 'puntos' => $puntos, 'medalla' => $medallas[$i]];
                     $i++;
                 }
@@ -99,12 +100,15 @@
 
             echo "<h1>DEBUG ZONE ⚠️</h1>";
 
+
+            echo "<h3>Tiradas</h3>";
             echo "<pre>";
             print_r($tiradas);
             echo "</pre>";
             
             echo "<hr>";
 
+            echo "<h3>Puntos Sumados</h3>";
             echo "<pre>";
             print_r($puntuaciones);
             echo "</pre>";

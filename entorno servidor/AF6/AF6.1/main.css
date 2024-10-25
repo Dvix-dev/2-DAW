@@ -2,6 +2,13 @@
     font-family: sans-serif;
 }
 
+html {
+    background-image: url(https://img.freepik.com/vector-premium/invitacion-vip-casino-lujo-fondo-banner-juego-fiesta-celebracion_29865-1738.jpg);
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -141,7 +148,7 @@ h2 {
     top: 20px;
     width: 40px;
     height: 40px;
-    background-color: transparent;
+    background-color: white;
     border: 1px solid black;
     transition: 0.5s;
 }
