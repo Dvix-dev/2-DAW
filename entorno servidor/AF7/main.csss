@@ -1,0 +1,22 @@
+:root {
+    --BG1: lightgray;
+    --BG2: aquamarine;
+    --BGtitle: red;
+    --player1: orange;
+    --player2: lightgray;
+    --player3: orange;
+    --player4: orange;
+    --btn: green;
+}
+
+.contenedor {
+    background-color: var(--BG1);
+}
+
+.tapiz {
+    background-color: var(--BG2);
+}
+
+div {
+    color: var(--player1);
+}
