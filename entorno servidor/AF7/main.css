@@ -1,69 +1,83 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+:root {
+    --BG1: #cccbd0;
+    --BG2: #97bf9a;
+    --BGtitle: #5b5c56;
+    --btn: #46af4b;
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    min-width: 100%;
+    min-height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    background-color: #e0e0e0;
 }
 
 .contenedor {
-    width: 80%;
-    background-color: #d1e7dd;
-    padding: 20px;
-    border-radius: 10px;
+    background-color: var(--BG1);
+    width: fit-content;
+    padding: 15px;
+    box-sizing: border-box;
 }
 
-.tablero h1 {
+h1 {
+    background-color: var(--BGtitle);
+    color: var(--BG1);
+    text-transform: uppercase;
     text-align: center;
-    color: #333;
+    margin: auto;
+    margin-bottom: 20px;
+    font-weight: 300;
+    width: 70%;
 }
 
-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-}
-
-thead th {
-    background-color: #b7c0cd;
-    color: #000;
-    padding: 10px;
-}
-
-tbody td {
+.tapiz {
+    background-color: var(--BG2);
+    box-shadow: 4px 4px 0 0 #d2ecd3;
+    box-sizing: border-box;
+    padding: 20px 50px;
+    border-radius: 5px;
     text-align: center;
-    padding: 8px;
 }
 
-tbody tr:nth-child(odd) {
-    background-color: #f5f5f5;
+div {
+    color: var(--player1);
 }
 
-tbody tr:nth-child(even) {
-    background-color: #e1eaf3;
+td, th {
+    text-align: center;
+    max-width: 75px;
 }
 
-tbody td img {
-    width: 30px;
-    height: 30px;
+.emoji_icons {
+    font-size: 35px;
 }
-
-th, td {
-    border: 1px solid #c3c3c3;
-}
-
-th:last-child, td:last-child {
-    background-color: #f9f9c5;
+.puntuaciones {
+    font-size: 35px;
     font-weight: bold;
 }
 
-th:last-child {
-    color: #000;
+button {
+    margin-top: 20px;
+    background-color: var(--btn);
+    color: #fff;
+    border: 2px solid transparent;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: large;
+    transition: .3s;
+}
+
+button:hover {
+    background-color: transparent;
+    color: var(--btn);
+    border: 2px solid var(--btn);
+    cursor: pointer;
+}
+
+#debug {
+    display: none;
 }

@@ -5,14 +5,13 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="author" content="David Escutia de Haro">
-    <meta name="author" content="Dvix">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="main.css">
     <title>Repartición de Medallas</title>
 </head>
 
 <?php
+    ################ RUTAS DADOS ##################
+
     $dados = [
         1 => './imagenes/1.png',
         2 => './imagenes/2.png',
@@ -20,104 +19,142 @@
         4 => './imagenes/4.png',
         5 => './imagenes/5.png',
         6 => './imagenes/6.png'
-];
+    ];
 
     ################ PRINCIPAL ##################
-    $tiradas = tirar(12,4);
-    $puntuaciones = puntuar($tiradas);
-    $podio = premiar($puntuaciones);
-
+    $tiradas = tirar(12, 4);                                        //Hace las tiradas
+    $puntuaciones = puntuar($tiradas, 4);       //Da puntuacion a los jugadores segun las tiradas
+    $podio = premiar($puntuaciones);                                //Premia las puntuaciones de los jugadores
 
     ################ FUNCIONES ##################
 
     function tirar($n_tiradas, $n_jugadores) {
-        // Funcion para simular las tiradas de dados
+        // Función para asignar aleatoriamente cada tirada a un jugador, manteniendo el índice de tirada
         $resultados = [];
-    
+
         for ($tirada = 0; $tirada < $n_tiradas; $tirada++) {
-            $resultado_tirada = rand(1, 6);
-            $jugador = rand(0, $n_jugadores - 1);
-            
-            $resultados[$tirada] = [
-                "Jugador" => $jugador,
-                "Resultado" => $resultado_tirada
-            ];
+            $resultado_tirada = rand(1, 6); // Dado resultado
+            $jugador = rand(0, $n_jugadores - 1); // Jugador aleatorio
+            $resultados[$jugador][$tirada] = $resultado_tirada; // Almacena el resultado en el índice de tirada
         }
-        
         return $resultados;
     }
-    
-    function puntuar($tiradas) {
-    // Función que establece las puntuaciones
-        $punt_jugadores = [
-            0 => 0,
-            1 => 0,
-            2 => 0,
-            3 => 0
-        ];
-    
-        for ($tirada = 0; $tirada < count($tiradas); $tirada++) {
-            $jugador = $tiradas[$tirada]["Jugador"];
-            $resultado = $tiradas[$tirada]["Resultado"];
-            $punt_jugadores[$jugador] += $resultado;
+
+    function puntuar($tiradas, $jugadores) {
+        // Calcula la puntuación de cada jugador sumando sus tiradas
+        $punt_jugadores = [];
+      
+        for ($i=0; $i < $jugadores; $i++) {     // Inicializar puntuaciones en 0
+            $punt_jugadores[$i] = 0;
         }
-    
+
+        foreach ($tiradas as $jugador => $tirada) {
+            $punt_jugadores[$jugador] = array_sum($tirada);
+        }
+
         return $punt_jugadores;
     }
 
     function premiar($puntuaciones) {
-    // Funcion que ordena y asigna el premio a los jugadores
+        // Asigna medallas según los puntos
         $medallas = ["🥇", "🥈", "🥉", "🥴"];
         $resultado = [];
         
         arsort($puntuaciones);
-    
+
+        // Empates
         $i = 0;
+        $aux = null;
+        $medalla_actual = 0;
+
         foreach ($puntuaciones as $jugador => $puntos) {
-            
-            $resultado[] = ['jugador' => 'Jugador '.$jugador + 1, 'puntos' => $puntos, 'medalla' => $medallas[$i]];
-            $i++;
+            if ($aux == $puntos && $i > 0) {
+                $medalla = $medallas[$medalla_actual];
+            } else {
+                $medalla = $medallas[$i];
+                $medalla_actual = $i;
+                $i++;
+            }
+            $resultado[$jugador] = [
+                'jugador' => 'Jugador '.($jugador + 1),
+                'puntos' => $puntos,
+                'medalla' => $medalla
+            ];
+            $aux = $puntos;
         }
-    
         return $resultado;
     }
 ?>
 
 <body>
     <div class="contenedor">
+        <h1>Repartición de Medallas</h1>
         <div class="tapiz">
-        <div class="tablero">
-            <h1>Repartición de Medallas</h1>
-            <table>
-                <thead>
-                    <tr>
-                        <th>Jugador</th>
-                        <?php for ($i = 1; $i <= 12; $i++): ?>
-                            <th>Tirada <?php echo $i; ?></th>
-                        <?php endfor;?>
-                        <th>Puntos Totales</th>
-                        <th>Medalla</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <?php foreach ($tiradas as $jugador => $resultados): ?>
-                        <tr>
-                            <td>Jugador <?php echo $jugador + 1; ?></td>
-                            <?php for ($i = 0; $i < 12; $i++): ?>
-                                <td>
-                                    <?php if (isset($resultados[$i])): ?>
-                                        <img src="<?php echo $dados[$resultados[$i]]; ?>" alt="Dado <?php echo $resultados[$i]; ?>" width="30">
-                                    <?php endif; ?>
-                                </td>
-                            <?php endfor; ?>
-                            <td><?php echo $puntuaciones[$jugador]; ?></td>
-                            <td><?php echo $podio[$jugador]['medalla']; ?></td>
-                        </tr>
-                    <?php endforeach; ?>
-                </tbody>
-            </table>
+            <div class="tablero">
+                <table>
+                    <?php
+                        echo "<thead>";
+                            echo "<tr>";
+                            // echo "<th>Jugador</th>";
+                            echo "<th></th>";
+                                for ($i = 1; $i <= 12; $i++){
+                                    // echo "<th>Tirada  $i</th>";
+                                    echo "<th></th>";
+                                } 
+                                echo "<th>PUNTOS\nTOTALES</th>";
+                                // echo "<th>Medalla</th>";
+                                echo "<th></th>";
+                            echo "</tr>";
+                        echo "</thead>";
+                        echo "<tbody>";
+
+                        // Colores asignados para cada jugador
+                        $colores = ["#d69d43", "#bb8f6a", "#a1734f", "#d9907b"];
+                        // Iconos de jugadores
+                        $iconos = ["👧","🧟","🦸‍♂️","🧌"];
+                            
+                        for ($jugador = 0; $jugador < 4; $jugador++){
+                            echo "<tr style='background-color: $colores[$jugador];'>";
+                                echo "<td>";
+                                    echo "<span class='emoji_icons'>$iconos[$jugador]</span>";
+                                echo "</td>";
+                                    for ($i = 0; $i < 12; $i++){
+                                        echo "<td>";
+                                            if (isset($tiradas[$jugador][$i])){
+                                                $puntuacion_aux = $tiradas[$jugador][$i];
+                                                echo "<img src='$dados[$puntuacion_aux]' width='50'>";
+                                            }
+                                        echo "</td>";
+                                    }
+                                    echo "<td>";
+                                        $punts = $puntuaciones[$jugador];
+                                        echo "<span class='puntuaciones'>$punts</span>";
+                                    echo "</td>";
+                                    echo "<td>";
+                                        $medalla = $podio[$jugador]['medalla'];
+                                        echo "<span class='emoji_icons'>$medalla</span>";
+                                    echo "</td>";
+                                echo "</tr>";
+                        }
+                        echo "</tbody>";
+                    ?>
+                </table>
+                <button onclick="window.location.reload();">Probar de nuevo</button>
+            </div>
         </div>
-        </div>
+    </div>
+    <div id="debug">
+        <pre>
+            <?php print_r($tiradas)?>
+        </pre>
+        <hr>
+        <pre>
+            <?php print_r($puntuaciones)?>
+        </pre>
+        <hr>
+        <pre>
+            <?php print_r($podio)?>
+        </pre>
     </div>
 </body>
 </html>
