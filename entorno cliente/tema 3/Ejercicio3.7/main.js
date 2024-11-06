@@ -18,7 +18,7 @@ while (response != 0){
 }
 
 if (numeros.includes(null)){
-    alert("El usuario cerró el programilla ab cabesa")
+    alert("El usuario cerró el programa")
 } else {
     var media = Media(numeros)
     alert("La media es " + media)

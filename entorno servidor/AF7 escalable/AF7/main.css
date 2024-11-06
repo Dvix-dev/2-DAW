@@ -1,0 +1,98 @@
+:root {
+    --BG1: #cccbd0;
+    --BG2: #97bf9a;
+    --BGtitle: #5b5c56;
+    --btn: #46af4b;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    min-width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.contenedor {
+    background-color: var(--BG1);
+    width: fit-content;
+    padding: 15px;
+    box-sizing: border-box;
+    margin-top: 25px;
+}
+
+.tapiz {
+    background-color: var(--BG2);
+    box-shadow: 4px 4px 0 0 #d2ecd3;
+    box-sizing: border-box;
+    padding: 20px 50px 10px 50px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.tablero {
+    max-width: 1350px;
+    overflow-x: auto;
+}
+
+
+.tablero::-webkit-scrollbar{
+    width: 8px;
+}
+
+.tablero::-webkit-scrollbar-thumb{
+    background-color: rgba(43, 177, 70, 0.666);
+    width: 8px;
+    border-radius: 10px;
+    margin-right: 1px;
+}
+
+h1 {
+    background-color: var(--BGtitle);
+    color: var(--BG1);
+    text-transform: uppercase;
+    text-align: center;
+    margin: auto;
+    margin-bottom: 20px;
+    font-weight: 300;
+    width: 70%;
+}
+
+td, th {
+    text-align: center;
+    max-width: 75px;
+    height: 56px;
+}
+
+.emoji_icons {
+    font-size: 35px;
+}
+.puntuaciones {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+button {
+    margin: 20px 0 10px 0;
+    background-color: var(--btn);
+    color: #fff;
+    border: 2px solid transparent;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: large;
+    transition: .3s;
+}
+
+button:hover {
+    background-color: transparent;
+    color: var(--btn);
+    border: 2px solid var(--btn);
+    cursor: pointer;
+}
+
+#debug {
+    display: none;
+}

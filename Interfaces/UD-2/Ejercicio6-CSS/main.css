@@ -1,0 +1,23 @@
+.cta-container {
+    /* background-image: url(https://motionbgs.com/media/3335/topographic-textures.jpg); */
+    background-image: url(https://plus.unsplash.com/premium_photo-1674728198545-8fa4796b9297?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8d2hpdGUlMjB3YWxscGFwZXJzfGVufDB8fDB8fHww);
+    background-position: center;
+    background-repeat: no-repeat;
+    text-align: center;
+    padding: 60px;
+}
+
+h2 {
+    font-size: 28;
+    font-weight: bold;
+}
+
+.cta-button {
+    background-color: #626bb2;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 5px;
+    font-size: 20px;
+    text-transform: uppercase;
+}

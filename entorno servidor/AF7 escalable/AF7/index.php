@@ -10,7 +10,7 @@
 </head>
 
 <?php
-    ################ RUTAS DADOS ##################
+    ################ VARIABLES ##################
 
     $dados = [
         1 => './imagenes/1.png',
@@ -21,10 +21,13 @@
         6 => './imagenes/6.png'
     ];
 
+    $numero_de_jugadores = 4;
+    $numero_de_tiradas = 12;
+
     ################ PRINCIPAL ##################
-    $tiradas = tirar(12, 4);                          //Hace las tiradas
-    $puntuaciones = puntuar($tiradas, 4);                 //Da puntuacion a los jugadores segun las tiradas
-    $podio = premiar($puntuaciones);                            //Premia las puntuaciones de los jugadores
+    $tiradas = tirar($numero_de_tiradas, $numero_de_jugadores);   //Hace las tiradas
+    $puntuaciones = puntuar($tiradas, $numero_de_jugadores);        //Da puntuacion a los jugadores segun las tiradas
+    $podio = premiar($puntuaciones);                                        //Premia las puntuaciones de los jugadores
 
     ################ FUNCIONES ##################
 
@@ -40,11 +43,11 @@
         return $resultados;
     }
 
-    function puntuar($tiradas, $jugadores) {
+    function puntuar($tiradas, $n_jugadores) {
         // Calcula la puntuación de cada jugador sumando sus tiradas
         $punt_jugadores = [];
       
-        for ($i=0; $i < $jugadores; $i++) {     // Inicializar puntuaciones en 0
+        for ($i=0; $i < $n_jugadores; $i++) {     // Inicializar puntuaciones en 0
             $punt_jugadores[$i] = 0;
         }
 
@@ -68,7 +71,7 @@
         $medalla_actual = 0;
 
         foreach ($puntuaciones as $jugador => $puntos) {
-            if ($aux == $puntos && $i > 0) {
+            if ($aux == $puntos && $i > 0 || $i > 3) {
                 $medalla = $medallas[$medalla_actual];
             } else {
                 $medalla = $medallas[$i];
@@ -97,7 +100,7 @@
                             echo "<tr>";
                             // echo "<th>Jugador</th>";
                             echo "<th></th>";
-                                for ($i = 1; $i <= 12; $i++){
+                                for ($i = 1; $i <= $numero_de_tiradas; $i++){
                                     // echo "<th>Tirada  $i</th>";
                                     echo "<th></th>";
                                 } 
@@ -113,12 +116,13 @@
                         // Iconos de jugadores
                         $iconos = ["👧","🧟","🦸‍♂️","🧌"];
                             
-                        for ($jugador = 0; $jugador < 4; $jugador++){
-                            echo "<tr style='background-color: $colores[$jugador];'>";
+                        for ($jugador = 0; $jugador < $numero_de_jugadores; $jugador++){
+                            $indice = $jugador % 4;
+                            echo "<tr style='background-color: $colores[$indice];'>";
                                 echo "<td>";
-                                    echo "<span class='emoji_icons'>$iconos[$jugador]</span>";
+                                    echo "<span class='emoji_icons'>$iconos[$indice]</span>";
                                 echo "</td>";
-                                    for ($i = 0; $i < 12; $i++){
+                                    for ($i = 0; $i < $numero_de_tiradas; $i++){
                                         echo "<td>";
                                             if (isset($tiradas[$jugador][$i])){
                                                 $puntuacion_aux = $tiradas[$jugador][$i];
