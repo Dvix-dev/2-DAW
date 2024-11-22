@@ -18,16 +18,18 @@
         <h1>CALCULADORA MCM</h1>
         <form class="tapiz" action="mcm.php" method="post">
             <div class="row">
-                <label>Nº 1:</label>
-                <input type="text" name="num1" id="num1" maxlength="6" placeholder="Introduzca un numero" required>
+                <label>Valores</label>
+                <input type="range" name="slider" id="slider" min="2" max="10" value="2" required>
             </div>
-            <div class="row">
-                <label>Nº 2:</label>
-                <input type="text" name="num2" id="num2" maxlength="6" placeholder="Introduzca un numero" required>
-            </div>
-            <div class="row">
-                <label>Nº 3:</label>
-                <input type="text" name="num3" id="num3" maxlength="6" placeholder="Introduzca un numero" required>
+            <div class="form_container">
+                <div class="row">
+                    <label>Nº 1:</label>
+                    <input type="text" name="num[]" maxlength="6" placeholder="Introduzca un numero" required>
+                </div>
+                <div class="row">
+                    <label>Nº 2:</label>
+                    <input type="text" name="num[]" maxlength="6" placeholder="Introduzca un numero" required>
+                </div>
             </div>
             <div class="btn-row">
                 <button id="btn-submit" type="button" onclick="verificar()">Calcular</button>
@@ -62,6 +64,27 @@
             } else {
                 contenedor.submit();
             }
+        }
+
+        let slider = document.querySelector("#slider")
+        let tapiz = document.querySelector(".tapiz")
+        let formulario = document.querySelector(".form_container")
+        slider.addEventListener("input", valores)
+
+        function valores() {
+            console.log(slider.value)
+            formulario.innerHTML = ""
+
+            for (i = 0; i < slider.value; i++) {
+                let input = document.createElement("div")
+                input.classList.add("row", "inputs_numeros")
+                input.innerHTML = `
+                    <label>Nº ${i+1}:</label>
+                    <input type="text" name="num[]" maxlength="6" placeholder="Introduzca un numero" required>
+                    `
+                formulario.appendChild(input)
+            }
+
         }
     </script>
 </body>

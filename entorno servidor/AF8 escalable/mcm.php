@@ -7,6 +7,16 @@
     <meta name="author" content="David Escutia de Haro">
     <link rel="stylesheet" href="main.css">
     <title>Mínimo Común Múltiplo</title>
+    <style>
+        body {
+            min-width: 100%;
+            min-height: 100vh;
+        }
+
+        .contenedor {
+            margin-block: 0;
+        }
+    </style>
 </head>
 
 <?php
@@ -30,38 +40,34 @@
         return $n_factorizado;
     }
 
-    function agrupar($n1,$n2,$n3){
+    function agrupar($numeros){
     // Funcion que agrupa todos los numeros factorizados para posteriormente poder trabajar con ellos
         $temp = null;
         $mcms = [];
 
-        $temp = factorizar($n1);
-        array_push($mcms,$temp);
-        $temp = factorizar($n2);
-        array_push($mcms,$temp);
-        $temp = factorizar($n3);
-        array_push($mcms,$temp);
+        foreach ($numeros as $numero) {
+            $temp = factorizar($numero);
+            array_push($mcms,$temp);
+        }
         
         return $mcms;
     }
 
-
-
-    function mcm($n1,$n2,$n3){
+    function mcm($array_numeros){
     // Funcion que hace el mínimo común múltiplo de los numeros introducidos
-        $array = agrupar($n1,$n2,$n3);
+        $array = agrupar($array_numeros);
         $exponentes = [];
         $mcm = 1;
 
-        for ($i=0; $i < 3; $i++) {      // Bucle para ver cuantas veces se repite un exponente
-            $temp = array_count_values($array[$i]);
+        foreach ($array as $numero) {                   // Bucle para ver cuantas veces se repite un exponente
+            $temp = array_count_values($numero);
             array_push($exponentes,$temp);
         }
 
         $max_cant_exponentes = count($exponentes[0]);   // Bucle que se va quedando con el exponente que mas veces se ha repetido y descarta los demas
-        for ($i=1; $i < 3; $i++) { 
-            if ($max_cant_exponentes > count($exponentes[$i])){
-                $max_cant_exponentes = count($exponentes[$i]);
+        foreach ($exponentes as $exponente) {
+            if ($max_cant_exponentes > count($exponente)){
+                $max_cant_exponentes = count($exponente);
             }
         }
 
@@ -88,7 +94,6 @@
         $mcm = [$mcm, $mayores_exponentes];
 
         return $mcm;
-
     }
 
     function printFactorizado($n_factorizado, $numeroSinFactorizar = null){
@@ -146,36 +151,31 @@
         return $printable;
     }
 
-    // Valores de prueba
-    // $var1 = 60;
-    // $var2 = 72;
-    // $var3 = 24;
-
-    // Recoger los valores del formulario
-    $var1 = intval($_POST["num1"]) ;
-    $var2 = intval($_POST["num2"]);
-    $var3 = intval($_POST["num3"]);
 
     ################ PRINCIPAL ##################
-    if (is_integer($var1) && is_integer($var2) && is_integer($var3)){
-        // Factoriza cada numero
-        $n1Factorizado = factorizar($var1);
-        $n2Factorizado = factorizar($var2);
-        $n3Factorizado = factorizar($var3);
-
-        // Hace que los factores sean imprimibles tipo "2² * 3²"
-        $n1FactorizadoImprimible = printFactorizado($n1Factorizado, $var1);
-        $n2FactorizadoImprimible = printFactorizado($n2Factorizado, $var2);
-        $n3FactorizadoImprimible = printFactorizado($n3Factorizado, $var3);
-        
-        // Funcion que simplemente factoriza y agrupa los valores en un array
-        $numerosFactorizados = agrupar($var1,$var2,$var3);
-
-        // Funcion que realiza el minimo comun multiplo y devuelve el valor y la impresión en un array 
-        $minimoComunMultiplo = mcm($var1,$var2,$var3);
-    } else {
-        echo "Alguno de los valores no es un numero";
+    // Recoger los valores del formulario
+    $numeros_formulario = $_POST["num"];
+    
+    // Factoriza cada numero
+    $array_factorizados = [];
+    foreach ($numeros_formulario as $numero) {
+        $numero_factorizado = factorizar($numero);
+        array_push($array_factorizados,$numero_factorizado);
     }
+
+    // Hace que los factores sean imprimibles tipo "2² * 3²"
+    $array_factorizados_imprimibles = [];
+
+    foreach ($array_factorizados as $numero_factorizado) {
+        $numero_factorizado_imprimible = printFactorizado($numero_factorizado);
+        array_push($array_factorizados_imprimibles,$numero_factorizado_imprimible);
+    }
+    
+    // Funcion que simplemente factoriza y agrupa los valores en un array
+    $numerosFactorizados = agrupar($numeros_formulario);
+
+    // Funcion que realiza el minimo comun multiplo y devuelve el valor y la impresión en un array 
+    $minimoComunMultiplo = mcm($numeros_formulario);
 
 ?>
 
@@ -186,8 +186,6 @@
             <div class="tablero">
                 <?php
                     echo '<div id="tablas">';
-                        $n_tablas = 3;
-
                         foreach ($numerosFactorizados as $key => $numeroFactorizado) {             
                             $temp = printFactorizado($numeroFactorizado);
                             $primero = true;
@@ -210,7 +208,7 @@
                     echo "</div>";
 
                     $mcmImprimible = printMCM($minimoComunMultiplo[1]);
-                    echo "<span id='mcm'>m.c.m() = ".$mcmImprimible." = ". $minimoComunMultiplo[0]."<span>";
+                    echo "<p id='mcm'>m.c.m() = ".$mcmImprimible." = ". $minimoComunMultiplo[0]."</p>";
                 ?>
             </div>
             <a href="index.html"><button >Volver al Formulario</button></a>
@@ -219,31 +217,23 @@
     <div id="debug">
         <h1>DEBUG</h1>
         <div>
-            <h2>$n1Factorizado</h2>
+            <h2>Numeros Formulario</h2>
             <pre>
-                <?php print_r($n1Factorizado)  ?>
+                <?php print_r($numeros_formulario)  ?>
+            </pre>
+        </div>
+        <hr>
+        <div>
+            <h2>Array Factorizados</h2>
+            <pre>
+                <?php print_r($array_factorizados)  ?>
             </pre>
         </div>
         <hr>
         <div>
             <h2>Factorizados Imprimibles</h2>
             <pre>
-                <?php print_r($n1FactorizadoImprimible)  ?>
-            </pre>
-            <br>
-            <pre>
-                <?php print_r($n2FactorizadoImprimible)  ?>
-            </pre>
-            <br>
-            <pre>
-                <?php print_r($n3FactorizadoImprimible)  ?>
-            </pre>
-        </div>
-        <hr>
-        <div>
-            <h2>$numerosFactorizados</h2>
-            <pre>
-                <?php print_r($numerosFactorizados)  ?>
+                <?php print_r($array_factorizados_imprimibles)  ?>
             </pre>
         </div>
         <hr>

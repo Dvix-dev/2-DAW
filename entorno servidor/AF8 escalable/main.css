@@ -8,8 +8,6 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
-    min-width: 100%;
-    min-height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -20,8 +18,10 @@ body {
     background-color: var(--BG1);
     box-shadow: 4px 4px 4px 1px #000000a1;;
     width: fit-content;
+    max-width: 80%;
     padding: 15px;
     box-sizing: border-box;
+    margin-block: 100px;
     border-radius: 10px;
 }
 
@@ -50,13 +50,15 @@ h1 {
 
 #tablas {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: space-around;
     margin-bottom: 30px;
 }
 
 table {
     padding: 5px;
     background-color: aliceblue;
+    margin: 10px;
     border-radius: 10px;
 }
 
@@ -75,6 +77,7 @@ tfoot > tr > th {
     background-color: #46af4b;
     border-radius: 5px;
     padding: 4px;
+    user-select: text;
 }
 
 td {
@@ -94,6 +97,7 @@ span, p {
     border-radius: 10px;
     font-size: x-large;
     padding: 10px;
+    user-select: text;
 }
 
 /* input[type="text"] {
