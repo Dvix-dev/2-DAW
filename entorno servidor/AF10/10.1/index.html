@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="David Escutia de Haro">
+    <meta name="author" content="Dvix">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="favicon" href="assets/">
+    <link rel="stylesheet" href="main.css">
+    <title>Mi Substr</title>
+</head>
+
+<body>
+    <div class="contenedor">
+        <h1>Mi Substr</h1>
+        <form class="inputs" action="substr.php" method="post">
+            <div class="form_container">
+                <label>Cadena*</label>
+                <div class="row">
+                    <input type="text" name="string" placeholder="Introduzca una cadena" required>
+                </div>
+                <label>Cantidad*</label>
+                <div class="row">
+                    <input type="number" name="cant" min="1" placeholder="Cantidad a extraer" required>
+                </div>
+                <label>Inicio</label>
+                <div class="row">
+                    <input type="number" name="start" placeholder="Inicio de la extraccion">
+                </div>
+            </div>
+            <div class="btn-row">
+                <button id="btn-submit" type="submit">Extraer</button>
+                <button type="reset">Reset</button>
+            </div>
+        </form>
+    </div>
+
+</body>
+</html>
