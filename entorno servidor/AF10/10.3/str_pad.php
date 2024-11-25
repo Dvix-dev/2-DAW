@@ -50,24 +50,45 @@ function mistr_pad($cadena,$cantidad,$relleno,$tipo){
         case 'both':
             $lado = true;
             $pos = 0;
+            $cont = 0;
             while ($cad_long < $cantidad) {
-                if ($lado){
-                    if ($cad_long + $rell_long <= $cantidad){
+                if ($cad_long + $rell_long <= $cantidad){
+                    if ($lado){
                         array_push($resultado,$relleno);
+                        $cont++;
                         $lado = false;
-                    }
-                } else {
-                    if ($cad_long + $rell_long <= $cantidad){
+                    } else {
                         array_unshift($resultado,$relleno);
+                        $cont++;
+                        $pos++;
                         $lado = true;
                     }
+                    $cad_long += $rell_long;
+                } else {
+                    $resto = $cantidad - $cad_long;
+                    $aux = 0;
+                    if ($lado){
+                        for ($i = 0; $i < $resto; $i++){
+                            $indice = $aux % $rell_long;
+                            array_push($resultado,$relleno[$indice]);
+                            $aux++;
+                        }
+                        break;
+                    } else {
+                        for ($i=0; $i < $resto; $i++) { 
+                            $indice = $aux % $rell_long;
+                            array_splice($resultado,$pos,0,$relleno[$indice]);
+                            $aux++;
+                            $pos++;
+                        }
+                        break;
+                    }
                 }
-                $cad_long += $rell_long;
+
             }
             $resultado = implode("",$resultado);
             return $resultado;
     }
-
 }
 
 $result = mistr_pad($cadena,$cantidad,$relleno,$tipo);
@@ -79,6 +100,7 @@ $result = mistr_pad($cadena,$cantidad,$relleno,$tipo);
     <div>
         <h2>Resultado</h2>
         <?php print ('<span>'.$result.'</span>') ?>
+        <!-- <?php print_r ($result) ?> -->
         <hr>
         <h2>Datos</h2>
         <?php print ('<span>Original: '.$cadena.'</span><br>') ?>
