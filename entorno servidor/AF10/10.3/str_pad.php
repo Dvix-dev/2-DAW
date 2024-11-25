@@ -52,11 +52,15 @@ function mistr_pad($cadena,$cantidad,$relleno,$tipo){
             $pos = 0;
             while ($cad_long < $cantidad) {
                 if ($lado){
-                    array_push($resultado,$relleno);
-                    $lado = false;
+                    if ($cad_long + $rell_long <= $cantidad){
+                        array_push($resultado,$relleno);
+                        $lado = false;
+                    }
                 } else {
-                    array_unshift($resultado,$relleno);
-                    $lado = true;
+                    if ($cad_long + $rell_long <= $cantidad){
+                        array_unshift($resultado,$relleno);
+                        $lado = true;
+                    }
                 }
                 $cad_long += $rell_long;
             }
@@ -71,18 +75,18 @@ $result = mistr_pad($cadena,$cantidad,$relleno,$tipo);
 ?>
 
 <div class="contenedor">
-        <h1>Mi Str_pad V2</h1>
-        <div>
-            <h2>Resultado</h2>
-            <?php print ('<span>'.$result.'</span>') ?>
-            <hr>
-            <h2>Datos</h2>
-            <?php print ('<span>Original: '.$cadena.'</span><br>') ?>
-            <?php print ('<span>Longitud: '.$cantidad.'</span><br>') ?>
-            <?php print ('<span>Relleno: '.$relleno.'</span><br>') ?>
-            <?php print ('<span>Tipo: '.$tipo.'</span>') ?>
-        </div> 
-        <div style="display:flex; justify-content:center;">
-            <a href="index.html"><button id="btn-submit" type="button">Volver</button></a>
-        </div>   
-    </div>
+    <h1>Mi Str_pad V2</h1>
+    <div>
+        <h2>Resultado</h2>
+        <?php print ('<span>'.$result.'</span>') ?>
+        <hr>
+        <h2>Datos</h2>
+        <?php print ('<span>Original: '.$cadena.'</span><br>') ?>
+        <?php print ('<span>Longitud: '.$cantidad.'</span><br>') ?>
+        <?php print ('<span>Relleno: '.$relleno.'</span><br>') ?>
+        <?php print ('<span>Tipo: '.$tipo.'</span>') ?>
+    </div> 
+    <div style="display:flex; justify-content:center;">
+        <a href="index.html"><button id="btn-submit" type="button">Volver</button></a>
+    </div>   
+</div>
