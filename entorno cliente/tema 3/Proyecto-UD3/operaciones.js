@@ -1,4 +1,4 @@
-// #### DATABASE INICIAL ####
+// ##### DATABASE INICIAL #####
 const socios = [
     { ID: 1, DNI: "12345678A", Name: "Juan", Lastname: "Pérez", Birthdate: "1990-05-12", Location: "Madrid" },
     { ID: 2, DNI: "23456789B", Name: "Ana", Lastname: "González", Birthdate: "1985-08-20", Location: "Barcelona" },
