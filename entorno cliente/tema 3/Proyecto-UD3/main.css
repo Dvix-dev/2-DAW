@@ -1,0 +1,370 @@
+:root {
+    --background: #eff2f6;
+    --borders: #dadde0;
+}
+
+
+body {
+    background-color: var(--background);
+    margin: 0;
+    font-family: sans-serif;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    list-style: none;
+}
+
+li {
+    list-style: none;
+}
+
+header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #dadde0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 60px;
+    padding-left: 20px;
+}
+
+.header_links {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 520px;
+}
+
+.header_links > a:not(:last-of-type):hover {
+    text-decoration: underline red;
+}
+
+img {
+    user-select: none;
+    -webkit-user-drag: none;
+}
+
+.logo > img {
+    width: 50px;
+    height: 50px;
+}
+
+.busqueda {
+    display: flex;
+    align-items: center;
+    background-color: #e1e1e1;
+    border-radius: 1000px;
+    padding-left: 10px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.header_search, .magnifying_glass_icon {
+    background-color: transparent;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    width: auto;
+}
+
+.magnifying_glass_icon:hover {
+    cursor: pointer;
+}
+
+.header_login-btn {
+    background-color: #006ed9;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-weight: 700;
+    color: white;
+}
+
+.header_login-btn:hover {
+    background-color: rgb(90, 170, 255);
+}
+
+main {
+    margin-top: 30px;
+    margin-inline: 15%;
+    margin-bottom: 30px;
+}
+
+#mainrow {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+}
+
+#mainrow > div {
+    min-height: 100px;
+    height: fit-content;
+    border: 1px solid #dadde0;
+    background-color: #ffffff;
+    border-radius: 10px;
+}
+
+.col {
+    padding: 5px;
+    width: 15%;
+    min-height: 20px;
+}
+
+div#center {
+    padding: 20px;
+    width: 60%;
+    height: fit-content;
+    min-height: 0;
+}
+
+/* ------ESTILOS COLUMNA 2 OCULTA TEMPORALMENTE POR DESUSO------ */
+div#col2 {
+    background-color: transparent;
+    border: none;
+}
+
+h1 {
+    margin: 0;
+}
+
+h3 {
+    margin: 0;
+    font-weight: 400;
+    color: darkgrey;
+}
+
+#col-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    font-size: large;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.button-link {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    user-select: none;
+    gap: 5px;
+    padding: 5px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: 0.5s;
+}
+
+.button-link:hover {
+    background-color: #f1f1f1d2;
+}
+
+.button-link:last-of-type {
+    margin-bottom: 0;
+}
+
+.form_container {
+    text-align: left;
+    margin-top: 20px;
+}
+
+#tablas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 30px;
+}
+
+table {
+    padding: 5px;
+    background-color: aliceblue;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+tbody {
+    display: inline;
+    font-size: larger;
+}
+
+thead > tr > th {
+    background-color: #cccbd0;
+    border-radius: 5px;
+    padding: 4px;
+}
+
+tfoot > tr > th {
+    background-color: #46af4b;
+    border-radius: 5px;
+    padding: 4px;
+    user-select: text;
+}
+
+td {
+    text-align: center;
+}
+
+.formRegister {
+    display: flex;
+    justify-content: space-between;
+}
+
+.formRegister-img {
+    width: 52%;
+    object-fit: none;
+    object-position: top;
+    border-radius: 10px;
+    background-color: black;
+}
+
+.formDeregister-img {
+    width: 52%;
+    height: 210px;
+    object-fit: cover;
+    object-position: top;
+    border-radius: 10px;
+    background-color: black;
+}
+
+.changeLocation-img {
+    width: 52%;
+    height: 278px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+}
+
+.formSearchByDNI-img {
+    width: 47%;
+    height: 210px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    filter: brightness(0.8);
+    background-color: black;
+}
+
+.formSearchByCategory-img {
+    width: 48%;
+    height: 210px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    background-color: #7a899b;
+}
+
+.formSearchByLocation-img {
+    width: 52%;
+    height: 210px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 10px;
+    background-color: black;
+}
+
+form {
+    width: fit-content;
+    padding: 15px;
+}
+
+.form_title {
+    width: fit-content;
+}
+
+label {
+    font-size: large;
+    font-weight: 600;
+    color: #353535;
+}
+
+input, select {
+    border: none;
+    background-color: transparent;
+    outline: none;
+    font-size: large;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    width: 100%;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.row {
+    padding:5px;
+    display: flex;
+    border-radius: 10px;
+    border: 1px solid #afafaf;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.row:not(:last-of-type){
+    margin-bottom: 10px;
+}
+
+.btn-row {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+button {
+    background-color: #006ed9;
+    color: #fff;
+    border: 2px solid transparent;
+    width: 100%;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 20px;
+    transition: .3s;
+}
+
+button:hover {
+    background-color: transparent;
+    color: #006ed9;
+    border: 2px solid #006ed9;
+    cursor: pointer;
+}
+
+a > button {
+    margin-top: 30px;
+}
+
+footer {
+    background-color: #ffffff;
+    border-top:1px solid #dadde0;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+#footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-inline: 80px;
+    height: 50px;
+}
+
+#copy {
+    user-select: none;
+}
+
+#footer_links {
+    display: flex;
+    justify-content: space-evenly;
+    width: 40%;
+}
+
+#footer_links > li {
+    transition: .5s;
+}
+
+#footer_links > li:hover {
+    cursor: pointer;
+    color: #006ed9;
+}
