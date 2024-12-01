@@ -1,38 +1,42 @@
 // ##### DATABASE INICIAL #####
 const socios = [
-    { ID: 1, DNI: "12345678A", Name: "Juan", Lastname: "Pérez", Birthdate: "1990-05-12", Location: "Madrid" },
-    { ID: 2, DNI: "23456789B", Name: "Ana", Lastname: "González", Birthdate: "1985-08-20", Location: "Barcelona" },
-    { ID: 3, DNI: "34567890C", Name: "Carlos", Lastname: "López", Birthdate: "1980-03-15", Location: "Valencia" },
-    { ID: 4, DNI: "45678901D", Name: "Maria", Lastname: "Martínez", Birthdate: "1992-07-10", Location: "Sevilla" },
-    { ID: 5, DNI: "56789012E", Name: "Luis", Lastname: "Hernández", Birthdate: "1988-11-05", Location: "Zaragoza" },
-    { ID: 6, DNI: "67890123F", Name: "Laura", Lastname: "García", Birthdate: "1995-02-28", Location: "Málaga" },
-    { ID: 7, DNI: "78901234G", Name: "Pedro", Lastname: "Sánchez", Birthdate: "1991-06-25", Location: "Murcia" },
-    { ID: 8, DNI: "89012345H", Name: "Carmen", Lastname: "Romero", Birthdate: "1987-09-13", Location: "Alicante" },
-    { ID: 9, DNI: "90123456I", Name: "Javier", Lastname: "Díaz", Birthdate: "1993-04-30", Location: "Castellón" },
-    { ID: 10, DNI: "01234567J", Name: "Sara", Lastname: "Álvarez", Birthdate: "1986-01-22", Location: "Vigo" },
-    { ID: 11, DNI: "12345678K", Name: "Andrés", Lastname: "Cano", Birthdate: "1994-12-05", Location: "Oviedo" },
-    { ID: 12, DNI: "23456789L", Name: "Beatriz", Lastname: "Vázquez", Birthdate: "1992-10-17", Location: "Gijón" },
-    { ID: 13, DNI: "34567890M", Name: "Raúl", Lastname: "Moreno", Birthdate: "1989-06-02", Location: "Santander" },
-    { ID: 14, DNI: "45678901N", Name: "Elena", Lastname: "Serrano", Birthdate: "1997-11-11", Location: "León" },
-    { ID: 15, DNI: "56789012O", Name: "Felipe", Lastname: "Pérez", Birthdate: "1990-08-19", Location: "Logroño" },
-    { ID: 16, DNI: "67890123P", Name: "Marta", Lastname: "Martínez", Birthdate: "1985-12-04", Location: "Salamanca" },
-    { ID: 17, DNI: "78901234Q", Name: "José", Lastname: "Fernández", Birthdate: "1984-07-21", Location: "Toledo" },
-    { ID: 18, DNI: "89012345R", Name: "Inés", Lastname: "Castro", Birthdate: "1996-03-30", Location: "Badajoz" },
-    { ID: 19, DNI: "90123456S", Name: "Miguel", Lastname: "Suárez", Birthdate: "1999-05-06", Location: "Burgos" },
-    { ID: 20, DNI: "01234567T", Name: "Paula", Lastname: "Gómez", Birthdate: "1993-10-22", Location: "Córdoba" },
-    { ID: 21, DNI: "12345678U", Name: "Luis", Lastname: "Ramírez", Birthdate: "1995-07-08", Location: "Madrid" },
-    { ID: 22, DNI: "23456789V", Name: "Elena", Lastname: "Torres", Birthdate: "1983-12-18", Location: "Sevilla" },
-    { ID: 23, DNI: "34567890W", Name: "Carlos", Lastname: "Gómez", Birthdate: "1991-01-14", Location: "Madrid" },
-    { ID: 24, DNI: "45678901X", Name: "María", Lastname: "López", Birthdate: "1992-10-25", Location: "Zaragoza" },
-    { ID: 25, DNI: "56789012Y", Name: "Fernando", Lastname: "Serrano", Birthdate: "1987-06-17", Location: "Málaga" },
-    { ID: 26, DNI: "67890123Z", Name: "Raquel", Lastname: "Jiménez", Birthdate: "1994-02-19", Location: "Barcelona" },
-    { ID: 27, DNI: "78901234A", Name: "Pablo", Lastname: "González", Birthdate: "1986-05-03", Location: "Madrid" },
-    { ID: 28, DNI: "89012345B", Name: "Sofía", Lastname: "Sánchez", Birthdate: "1993-11-28", Location: "Valencia" },
-    { ID: 29, DNI: "90123456C", Name: "Alberto", Lastname: "Pérez", Birthdate: "1990-09-22", Location: "Valencia" },
-    { ID: 30, DNI: "01234567D", Name: "Clara", Lastname: "García", Birthdate: "1991-04-10", Location: "Alicante" }
+    { ID: 1, DNI: "12345678A", Name: "Juan", Lastname: "Pérez", Birthdate: "12/05/1990", Location: "Madrid", Category: "Senior" },
+    { ID: 2, DNI: "23456789B", Name: "Ana", Lastname: "González", Birthdate: "20/08/1985", Location: "Barcelona", Category: "Senior" },
+    { ID: 3, DNI: "34567890C", Name: "Carlos", Lastname: "López", Birthdate: "15/03/1980", Location: "Valencia", Category: "Senior" },
+    { ID: 4, DNI: "45678901D", Name: "Maria", Lastname: "Martínez", Birthdate: "10/07/1992", Location: "Sevilla", Category: "Senior" },
+    { ID: 5, DNI: "56789012E", Name: "Luis", Lastname: "Hernández", Birthdate: "05/11/1988", Location: "Zaragoza", Category: "Senior" },
+    { ID: 6, DNI: "67890123F", Name: "Laura", Lastname: "García", Birthdate: "28/02/1995", Location: "Málaga", Category: "Senior" },
+    { ID: 7, DNI: "78901234G", Name: "Pedro", Lastname: "Sánchez", Birthdate: "25/06/1991", Location: "Murcia", Category: "Senior" },
+    { ID: 8, DNI: "89012345H", Name: "Carmen", Lastname: "Romero", Birthdate: "13/09/1987", Location: "Alicante", Category: "Senior" },
+    { ID: 9, DNI: "90123456I", Name: "Javier", Lastname: "Díaz", Birthdate: "30/04/1993", Location: "Castellón", Category: "Senior" },
+    { ID: 10, DNI: "01234567J", Name: "Sara", Lastname: "Álvarez", Birthdate: "22/01/1986", Location: "Vigo", Category: "Senior" },
+    { ID: 11, DNI: "12345678K", Name: "Andrés", Lastname: "Cano", Birthdate: "05/12/1994", Location: "Oviedo", Category: "Senior" },
+    { ID: 12, DNI: "23456789L", Name: "Beatriz", Lastname: "Vázquez", Birthdate: "17/10/1992", Location: "Gijón", Category: "Senior" },
+    { ID: 13, DNI: "34567890M", Name: "Raúl", Lastname: "Moreno", Birthdate: "02/06/1989", Location: "Santander", Category: "Senior" },
+    { ID: 14, DNI: "45678901N", Name: "Elena", Lastname: "Serrano", Birthdate: "11/11/1997", Location: "León", Category: "Senior" },
+    { ID: 15, DNI: "56789012O", Name: "Felipe", Lastname: "Pérez", Birthdate: "19/08/1990", Location: "Logroño", Category: "Senior" },
+    { ID: 16, DNI: "67890123P", Name: "Marta", Lastname: "Martínez", Birthdate: "04/12/1985", Location: "Salamanca", Category: "Senior" },
+    { ID: 17, DNI: "78901234Q", Name: "José", Lastname: "Fernández", Birthdate: "21/07/1984", Location: "Toledo", Category: "Senior" },
+    { ID: 18, DNI: "89012345R", Name: "Inés", Lastname: "Castro", Birthdate: "30/03/1996", Location: "Badajoz", Category: "Senior" },
+    { ID: 19, DNI: "90123456S", Name: "Miguel", Lastname: "Suárez", Birthdate: "06/05/1999", Location: "Burgos", Category: "Senior" },
+    { ID: 20, DNI: "01234567T", Name: "Paula", Lastname: "Gómez", Birthdate: "22/10/1993", Location: "Córdoba", Category: "Senior" },
+    { ID: 21, DNI: "12345678U", Name: "Luis", Lastname: "Ramírez", Birthdate: "08/07/1995", Location: "Madrid", Category: "Senior" },
+    { ID: 22, DNI: "23456789V", Name: "Elena", Lastname: "Torres", Birthdate: "18/12/1983", Location: "Sevilla", Category: "Senior" },
+    { ID: 23, DNI: "34567890W", Name: "Carlos", Lastname: "Gómez", Birthdate: "14/01/1991", Location: "Madrid", Category: "Senior" },
+    { ID: 24, DNI: "45678901X", Name: "María", Lastname: "López", Birthdate: "25/10/1992", Location: "Zaragoza", Category: "Senior" },
+    { ID: 25, DNI: "56789012Y", Name: "Fernando", Lastname: "Serrano", Birthdate: "17/06/1987", Location: "Málaga", Category: "Senior" },
+    { ID: 26, DNI: "67890123Z", Name: "Raquel", Lastname: "Jiménez", Birthdate: "19/02/1994", Location: "Barcelona", Category: "Senior" },
+    { ID: 27, DNI: "78901234A", Name: "Pablo", Lastname: "González", Birthdate: "03/05/1986", Location: "Madrid", Category: "Senior" },
+    { ID: 28, DNI: "89012345B", Name: "Sofía", Lastname: "Sánchez", Birthdate: "28/11/1993", Location: "Valencia", Category: "Senior" },
+    { ID: 29, DNI: "90123456C", Name: "Alberto", Lastname: "Pérez", Birthdate: "22/09/1990", Location: "Valencia", Category: "Senior" },
+    { ID: 30, DNI: "01234567D", Name: "Clara", Lastname: "García", Birthdate: "10/04/1991", Location: "Alicante", Category: "Senior" }
 ];
 
+
+// CONTENDOR
 var contenedor = document.querySelector('#center')
+
+// ##### FUNCIONES PRINCIPALES #####
 function GenRegisterForm(){
     contenedor.innerHTML = 
         `
@@ -42,27 +46,27 @@ function GenRegisterForm(){
                 <div class="form_container">
                     <label>DNI*</label>
                     <div class="row">
-                        <input type="text" name="string" placeholder="Introduzca su DNI" required>
+                        <input type="text" name="DNI" placeholder="Introduzca su DNI" required>
                     </div>
                     <label>Nombre*</label>
                     <div class="row">
-                        <input type="text" name="string" placeholder="Introduzca su nombre" required>
+                        <input type="text" name="Name" placeholder="Introduzca su nombre" required>
                     </div>
                     <label>Apellidos*</label>
                     <div class="row">
-                        <input type="text" name="string" placeholder="Introduzca sus Apellidos" required>
+                        <input type="text" name="Lastname" placeholder="Introduzca sus Apellidos" required>
                     </div>
                     <label>Fecha de Nacimiento*</label>
                     <div class="row">
-                        <input type="date" name="string" placeholder="Introduzca su nombre" required>
+                        <input type="date" name="Birthdate" required>
                     </div>
                     <label>Localidad*</label>
                     <div class="row">
-                        <input type="text" name="string" placeholder="Introduzca su localidad" required>
+                        <input type="text" name="Location" placeholder="Introduzca su localidad" required>
                     </div>
                 </div>
                 <div class="btn-row">
-                    <button id="btn-submit" type="submit">Dar de Alta</button>
+                    <button id="btn-submit" type="button" onclick='Register()'>Dar de Alta</button>
                 </div>
             </form>
             <img class="formRegister-img" src="https://aedaweb.com/wp-content/uploads/2023/03/ALTA_2023.jpg" alt="">
@@ -184,4 +188,61 @@ function SearchByLocation(){
         <img class="formSearchByDNI-img" src="https://igerent.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdudyf0uni%2Fimage%2Fupload%2Fv1710325335%2Flarge_Free_Trademark_Search_372c7f3724.webp&w=1920&q=75" alt="">
     </div> 
     `
+}
+
+function ShowUsers(){
+    contenedor.innerHTML = '<h1 style="margin-bottom:10px;">Lista Socios</h1>'
+
+    const tableheaders = ['ID','DNI','Name','Lastname','Birthdate','Location','Category']
+
+    let tabla = document.createElement('table')
+    
+    
+    for (let i = 0; i < socios.length; i++){
+        let fila = document.createElement('tr')
+        for (let j = 0; j < tableheaders.length; j++){
+            let celda = document.createElement('td')
+            celda.innerHTML=socios[i][tableheaders[j]]
+            console.log(celda)
+            fila.appendChild(celda)
+        };
+        tabla.appendChild(fila)
+    };
+
+    contenedor.appendChild(tabla)
+}
+
+console.log(socios[socios.length - 1]["ID"] + 1)
+
+// ##### FUNCIONES AUXILIARES #####
+function Register(){
+    var ID = socios[socios.length - 1]["ID"] + 1
+    console.log(ID)
+    var DNI = document.querySelector('input[name="DNI"]').value
+    var Name = document.querySelector('input[name="Name"]').value
+    var Lastname = document.querySelector('input[name="Lastname"]').value
+    var Birthdate = document.querySelector('input[name="Birthdate"]').value
+    var Location = document.querySelector('input[name="Location"]').value
+    
+    const Currentyear = new Date().getFullYear();
+    var Birthyear = Birthdate.split('/')[2]
+
+    const Age = Currentyear - Birthyear;
+    let Category;
+
+    if (Age <= 6) {
+        Category = 'Micros';
+    } else if (Age <= 12) {
+        Category = 'Infantil';
+    } else if (Age <= 17) {
+        Category = 'Juvenil';
+    } else {
+        Category = 'Senior';
+    }
+
+    var NewUser = { ID: ID, DNI: DNI, Name: Name, Lastname: Lastname, Birthdate: Birthdate, Location: Location, Category: Category}
+
+    socios.push(NewUser)
+
+    contenedor.innerHTML = '<h1>Socio añadido correctamente ✔</h1>'
 }

@@ -8,6 +8,9 @@ body {
     background-color: var(--background);
     margin: 0;
     font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 a {
@@ -116,6 +119,21 @@ div#center {
     width: 60%;
     height: fit-content;
     min-height: 0;
+    max-height: 78vh;
+    overflow: auto;
+}
+
+div#center::-webkit-scrollbar {
+    position: relative;
+    right: 2px;
+    width: 3px;
+}
+div#center::-webkit-scrollbar-track {
+    background-color: #afafaf;
+}
+
+div#center::-webkit-scrollbar-thumb {
+    background-color: #858585;
 }
 
 /* -----ESTILOS COLUMNA 2 OCULTA TEMPORALMENTE POR DESUSO----- */
@@ -177,10 +195,8 @@ h3 {
 }
 
 table {
-    padding: 5px;
-    background-color: aliceblue;
-    margin: 10px;
-    border-radius: 10px;
+    width: 100%;
+    border-collapse: collapse;
 }
 
 tbody {
@@ -203,6 +219,8 @@ tfoot > tr > th {
 
 td {
     text-align: center;
+    border: 1px solid gainsboro;
+    padding: 4px;
 }
 
 .formRegister {
@@ -338,8 +356,7 @@ footer {
     background-color: #ffffff;
     border-top:1px solid #dadde0;
     width: 100%;
-    position: absolute;
-    bottom: 0;
+margin-top: auto;
 }
 
 #footer {
