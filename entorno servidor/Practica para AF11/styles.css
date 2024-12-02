@@ -1,0 +1,13 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+main {
+    width: 50%;
+}
+
+fieldset {
+    display: flex;
+    flex-direction: column;
+}
