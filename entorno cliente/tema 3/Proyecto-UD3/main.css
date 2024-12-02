@@ -226,7 +226,7 @@ tfoot > tr > th {
     user-select: text;
 }
 
-td {
+td, th {
     text-align: center;
     border: 1px solid gainsboro;
     padding: 4px;
