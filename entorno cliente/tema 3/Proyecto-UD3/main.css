@@ -341,7 +341,7 @@ button {
     transition: .3s;
 }
 
-button:hover {
+#btn-submit:hover {
     background-color: transparent;
     color: #006ed9;
     border: 2px solid #006ed9;
