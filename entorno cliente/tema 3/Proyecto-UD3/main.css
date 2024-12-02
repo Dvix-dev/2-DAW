@@ -49,6 +49,16 @@ img {
     -webkit-user-drag: none;
 }
 
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 50px;
+    font-family: "Dancing Script", cursive;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+
 .logo > img {
     width: 50px;
     height: 50px;
@@ -89,7 +99,7 @@ img {
 
 main {
     margin-top: 30px;
-    margin-inline: 15%;
+    margin-inline: 10%;
     margin-bottom: 30px;
 }
 
@@ -97,7 +107,7 @@ main {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 #mainrow > div {
@@ -116,10 +126,9 @@ main {
 
 div#center {
     padding: 20px;
-    width: 60%;
+    width: 800px;
     height: fit-content;
     min-height: 0;
-    max-height: 78vh;
     overflow: auto;
 }
 
@@ -341,7 +350,7 @@ button {
     transition: .3s;
 }
 
-button:hover {
+#btn-submit:hover {
     background-color: transparent;
     color: #006ed9;
     border: 2px solid #006ed9;
