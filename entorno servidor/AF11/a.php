@@ -13,19 +13,23 @@
 <?php 
     include './irregular-verbs-list.php';
 
+    $respondido = false;
+
     $formas_verbales = [
         "presente",
         "pasado",
         "participio",
     ];
 
-    $randquestionverbalform = rand(0,count($formas_verbales)-1);
-    $questionverbalform = $formas_verbales[$randquestionverbalform];
+    if (!$respondido){
+        $randquestionverbalform = rand(0,count($formas_verbales)-1);
+        $questionverbalform = $formas_verbales[$randquestionverbalform];
 
-    $questionverb = rand(0,count($irregularVerbs)-1);
-    $arrayverb = $irregularVerbs[$questionverb];
-    array_pop($arrayverb);
-    $arrayverbconst = $arrayverb;
+        $questionverb = rand(0,count($irregularVerbs)-1);
+        $arrayverb = $irregularVerbs[$questionverb];
+        array_pop($arrayverb);
+        $arrayverbconst = $arrayverb;
+    }
 ?>
 <body>
     <main>
@@ -35,26 +39,35 @@
                 <form action="" method="post">
                     <p class="pregunta">Cual es el <?php print($questionverbalform); ?> de "<?php print($irregularVerbs[$questionverb][3]); ?>"</p>
                     <?php
-                        shuffle($arrayverb);
+                        if (!$respondido){
+                            shuffle($arrayverb);
+                        }
                         foreach ($arrayverb as $key => $value) {
                             print('<div class="respuestarow"><input type="radio" name="respuesta" value="'.$key.'" required><label for="'.$value.'">'.$value.'</label></div>');
                         }
                     ?>
                     <div class="row-btn">
-                        <button type="submit">Corregir</button>
+                        <?php
+                            if ($respondido){
+                                print('<button disabled type="submit">Corregir</button>'); 
+                            } else {
+                                print('<button type="submit">Corregir</button>');
+                            }
+                            
+                        ?>
                         <button type="reset">Borrar</button>
                     </div>
                 </form>
                 <?php
-                    if ($_SERVER["REQUEST_METHOD"] == "POST") {
+                    if ($respondido) {
                         $respuesta = $_POST['respuesta'];
                         $correct_answer = $arrayverb[$randquestionverbalform];
-                        print('<div class="solucion">');  
+                        print('<div class="solucion">'); 
                         if ($arrayverb[$respuesta] == $correct_answer) {
                             print("¡Respuesta correcta!");
                         } else {
-                        print("¡Respuesta incorrecta!<br>");
-                        print("El ".$questionverbalform." de ".$irregularVerbs[$questionverb][3]." es ".$arrayverbconst[$randquestionverbalform]."");
+                            print("¡Respuesta incorrecta!<br>");
+                            print("El ".$questionverbalform." de ".$irregularVerbs[$questionverb][3]." es ".$arrayverbconst[$randquestionverbalform]."");
                         }
                         print('</div>');
                     }

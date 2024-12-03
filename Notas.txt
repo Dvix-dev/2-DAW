@@ -1,0 +1,2 @@
+Entorno servidor.
+Importante - fgetcsv() para la practica de la web de cocina

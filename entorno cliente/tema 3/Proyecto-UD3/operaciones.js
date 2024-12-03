@@ -233,30 +233,72 @@ function Register(){
 
     var NewUser = { ID: ID, DNI: DNI, Name: Name, Lastname: Lastname, Birthdate: Birthdate, Location: Location, Category: Category}
 
-    socios.push(NewUser)
+    // GENERAR ERRORES
+    var errors = []
+    if (socios.some(socio => socio.DNI === DNI)){
+        mensaje = "El DNI <b>"+DNI+"</b> ya se encuenta en uso";
+        errors.push(mensaje)
+    }
+    
 
-    contenedor.innerHTML = '<h1>Socio añadido correctamente ✔</h1>'
+    if (errors.length == 0){
+        socios.push(NewUser)
+        contenedor.innerHTML = '<h1>Socio añadido correctamente ✔</h1>'
+    } else {
+        contenedor.innerHTML = '<h1>No se ha añadido el socio:</h1>'
+        contenedor.insertAdjacentHTML("beforeend",'<ul>')
+        console.log(errors)
+        errors.forEach(error => {
+            contenedor.insertAdjacentHTML("beforeend",'<li>'+error+'</li>')
+        });
+        contenedor.insertAdjacentHTML("beforeend",'</ul>')
+    }
 }
 
 function Deregister(){
     var busqueda = document.querySelector('input[name="busqueda"]').value
-    var opcion = document.querySelector('input[name="opcion"]').value
+    var opcion = document.querySelector('select[name="opcion"]').value
+    var encontrado = false
 
     switch (opcion) {
-        case DNI:
-            
+        case "DNI":
+            for(i=0; i < socios.length; i++){
+                if (socios[i]['DNI'] == busqueda){
+                    encontrado = true
+                    var posicion = i
+                    break
+                }
+            }
+            if (encontrado) {
+                delete(socios[posicion])
+            } else {
+                let mensaje = "El DNI "+busqueda+" no se encontró"
+            }
             break;
     
-        case ID:
-
+        case "ID":
+            for(i=0; i < socios.length; i++){
+                if (socios[i]['ID'] == busqueda){
+                    encontrado = true
+                    var posicion = i
+                    break
+                }
+            }
+            if (encontrado) {
+                delete(socios[posicion])
+            } else {
+                let mensaje = "El DNI "+busqueda+" no se encontró"
+            }
             break;
     }
 
-    var NewUser = { ID: ID, DNI: DNI, Name: Name, Lastname: Lastname, Birthdate: Birthdate, Location: Location, Category: Category}
+    if (encontrado){
+        contenedor.innerHTML = '<h1>Socio eliminado correctamente ✔</h1>'
+    } else {
+            contenedor.innerHTML = '<h1>No se ha podido eliminar el socio:</h1>'
+            contenedor.insertAdjacentHTML("beforeend",mensaje)     
+    }
 
-    socios.push(NewUser)
-
-    contenedor.innerHTML = '<h1>Socio eliminado correctamente ✔</h1>'
 }
 
 function GetCategory(Birthdate){
