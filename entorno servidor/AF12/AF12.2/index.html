@@ -32,28 +32,11 @@
         </header>
         <main>
             <div class="formRegister">
-                <form method="post" action="accion.php">
-                    <h1 class="form_title">Añadir Usuario</h1>
-                    <div class="form_container">
-                        <label>Nombre completo*</label>
-                        <div class="row">
-                            <input type="text" name="name" placeholder="Introduzca su nombre completo" required>
-                        </div>
-                        <label>Fecha de Nacimiento*</label>
-                        <div class="row">
-                            <input type="date" name="birthdate" required>
-                        </div>
-                        <label>Email*</label>
-                        <div class="row">
-                            <input type="email" name="email" placeholder="Introduzca su email" required>
-                        </div>
-                        <label>Telefono*</label>
-                        <div class="row">
-                            <input type="tel" name="phonenum" placeholder="Introduzca su numero telefonico" required>
-                        </div>
-                    </div>
+                <form method="post" action="accion.php" style="width: 260px;">
+                    <h1 class="form_title">Fichero Gestión Usuarios</h1>
                     <div class="btn-row">
-                        <button id="btn-submit" type="submit">Registrar usuario</button>
+                        <button class="first_form-btn" name="registro" type="submit">REGISTRO</button>
+                        <button class="first_form-btn" name="mostrar_usuarios" type="submit">MOSTRAR USUARIOS</button>
                     </div>
                 </form>
             </div> 
