@@ -94,7 +94,7 @@ function GenDeregisterForm(){
     `
 }
 
-function ChangeLocation(){
+function ChangeLocationForm(){
     contenedor.innerHTML =
     `
     <div class="formRegister">
@@ -103,15 +103,15 @@ function ChangeLocation(){
             <div class="form_container">
                 <label>DNI*</label>
                 <div class="row">
-                    <input type="text" name="string" placeholder="Introduzca el DNI" required>
+                    <input type="text" name="busqueda" placeholder="Introduzca el DNI" required>
                 </div>
                 <label>Nueva Localidad*</label>
                 <div class="row">
-                    <input type="text" name="string" placeholder="Introduzca la nueva Localidad" required>
+                    <input type="text" name="newlocation" placeholder="Introduzca la nueva Localidad" required>
                 </div>
             </div>
             <div class="btn-row">
-                <button id="btn-submit" type="submit">Modificar</button>
+                <button id="btn-submit" type="button" onclick="ChangeLocation()">Modificar</button>
             </div>
         </form>
         <img class="changeLocation-img" src="https://img.freepik.com/fotos-premium/plantilla-plana-diseno-ilustraciones-puntos-interes_1248848-14009.jpg" alt="">
@@ -119,7 +119,7 @@ function ChangeLocation(){
     `
 }
 
-function SearchByDNI(){
+function SearchByDNIForm(){
     contenedor.innerHTML =
     `
     <div class="formRegister">
@@ -128,11 +128,11 @@ function SearchByDNI(){
             <div class="form_container">
                 <label>DNI*</label>
                 <div class="row">
-                    <input type="text" name="string" placeholder="Introduzca su DNI" required>
+                    <input type="text" name="busqueda" placeholder="Introduzca su DNI" required>
                 </div>
             </div>
             <div class="btn-row">
-                <button id="btn-submit" type="submit">Buscar</button>
+                <button id="btn-submit" type="button" onclick="SearchByDNI()">Buscar</button>
             </div>
         </form>
         <img class="formSearchByDNI-img" src="https://neilpatel.com/wp-content/uploads/2021/02/facebook-search-operators-4.png" alt="">
@@ -140,7 +140,7 @@ function SearchByDNI(){
     `
 }
 
-function SearchByCategory(){
+function SearchByCategoryForm(){
     contenedor.innerHTML =
     `
     <div class="formRegister">
@@ -151,15 +151,15 @@ function SearchByCategory(){
                 <div class="row">
                     <select name="opcion">
                         <option value="" selected disabled>-Seleccione una categoría-</option>
-                        <option value="micros">Micros</option>
-                        <option value="infantil">Infantil</option>
-                        <option value="juvenil">Juvenil</option>
-                        <option value="senior">Senior</option>
+                        <option value="Micros">Micros</option>
+                        <option value="Infantil">Infantil</option>
+                        <option value="Juvenil">Juvenil</option>
+                        <option value="Senior">Senior</option>
                     </select>
                 </div>
             </div>
             <div class="btn-row">
-                <button id="btn-submit" type="submit">Buscar</button>
+                <button id="btn-submit" type="button" onclick="SearchByCategory()">Buscar</button>
             </div>
         </form>
         <img class="formSearchByCategory-img" src="https://mantpress.com/wp-content/uploads/11-08-21-%C2%BFCo%CC%81mo-agregar-la-bu%CC%81squeda-por-categori%CC%81a-en-tu-sitio-web-de-WordPress-1200x630.png" alt="">
@@ -167,7 +167,7 @@ function SearchByCategory(){
     `
 }
 
-function SearchByLocation(){
+function SearchByLocationForm(){
     contenedor.innerHTML =
     `
     <div class="formRegister">
@@ -176,11 +176,11 @@ function SearchByLocation(){
             <div class="form_container">
                 <label>Localidad*</label>
                 <div class="row">
-                    <input type="text" name="string" placeholder="Introduzca la Localidad" required>
+                    <input type="text" name="busqueda" placeholder="Introduzca la Localidad" required>
                 </div>
             </div>
             <div class="btn-row">
-                <button id="btn-submit" type="submit">Buscar</button>
+                <button id="btn-submit" type="button" onclick="SearchByLocation()">Buscar</button>
             </div>
         </form>
         <img class="formSearchByDNI-img" src="https://igerent.com/_next/image?url=https%3A%2F%2Fres.cloudinary.com%2Fdudyf0uni%2Fimage%2Fupload%2Fv1710325335%2Flarge_Free_Trademark_Search_372c7f3724.webp&w=1920&q=75" alt="">
@@ -188,7 +188,7 @@ function SearchByLocation(){
     `
 }
 
-function ShowUsers(){
+function ShowUsers(array){
     contenedor.innerHTML = '<h1 style="margin-bottom:10px;">Lista Socios</h1>'
 
     const tableheaders = ['ID','DNI','Name','Lastname','Birthdate','Location','Category']
@@ -204,14 +204,14 @@ function ShowUsers(){
     });
     tabla.appendChild(header)
     
-    for (let i = 0; i < socios.length; i++){
+    for (let i = 0; i < array.length; i++){
         let fila = document.createElement('tr')
         for (let j = 0; j < tableheaders.length - 1; j++){
             let celda = document.createElement('td')
-            celda.innerHTML=socios[i][tableheaders[j]]
+            celda.innerHTML=array[i][tableheaders[j]]
             fila.appendChild(celda)
         };
-        let categoria = GetCategory(socios[i]['Birthdate'])
+        let categoria = GetCategory(array[i]['Birthdate'])
         let celda = document.createElement('td')
         celda.innerHTML=categoria
         fila.appendChild(celda)
@@ -299,6 +299,59 @@ function Deregister(){
             contenedor.insertAdjacentHTML("beforeend",mensaje)     
     }
 
+}
+
+function ChangeLocation() {
+
+}
+
+function SearchByDNI() {
+    var busqueda = document.querySelector('input[name="busqueda"]').value
+    var result = []
+    socios.forEach(socio => {
+        if (socio['DNI'] == busqueda){
+            result.push(socio)
+        }
+    });
+    if (result.length > 0){
+        ShowUsers(result)
+    } else {
+        contenedor.innerHTML = '<h1>No se pudo encontrar ningún socio con ese DNI</h1>'
+    }
+}
+
+function SearchByCategory() {
+    var busqueda = document.querySelector('select[name="opcion"]').value
+    var result = []
+    console.log('Busqueda: '+busqueda)
+    socios.forEach(socio => {
+        var Category = GetCategory(socio['Birthdate'])
+        console.log(Category)
+        if (Category == busqueda){
+            console.log("Estoy dentro del IF")
+            result.push(socio)
+        }
+    });
+    if (result.length > 0){
+        ShowUsers(result)
+    } else {
+        contenedor.innerHTML = '<h1>No se pudo encontrar ningún socio perteneciente a esa categoría</h1>'
+    }
+}
+
+function SearchByLocation() {
+    var busqueda = document.querySelector('input[name="busqueda"]').value
+    var result = []
+    socios.forEach(socio => {
+        if (socio['Location'] == busqueda){
+            result.push(socio)
+        }
+    });
+    if (result.length > 0){
+        ShowUsers(result)
+    } else {
+        contenedor.innerHTML = '<h1>No se pudo encontrar ningún socio de esa Localidad</h1>'
+    }
 }
 
 function GetCategory(Birthdate){
