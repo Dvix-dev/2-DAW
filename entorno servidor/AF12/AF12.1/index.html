@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="David Escutia de Haro">
+    <meta name="author" content="Dvix">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="favicon" href="assets/">
+    <link rel="stylesheet" href="main.css">
+    <title>Título</title>
+</head>
+
+<body>
+    <body>
+        <header>
+            <div class="logo">
+                <img src="https://dvix.es/sources/Dvix verde.png" alt="Logo Empresa">
+                <h1>Ficheros - David Escutia de Haro</>
+            </div>
+            <div class="header_links">
+                <a href="./index.html">Home</a>
+                <a href="#">Blog</a>
+                <div class="busqueda">
+                    <input class="header_search" type="text" placeholder="Búsqueda">
+                    <button type="button" class="magnifying_glass_icon"><svg id='search_24' width='24' height='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink'><rect width='24' height='24' stroke='none' fill='#000000' opacity='0'/><g transform="matrix(1 0 0 1 12 12)" ><g transform="matrix(1 0 0 1 0 0)" ><path style="stroke: none; stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" transform=" translate(-12, -12)" d="M 0 0 L 24 0 L 24 24 L 0 24 z" stroke-linecap="round" /></g><g transform="matrix(1 0 0 1 -2 -2)" ><circle style="stroke: rgb(33,33,33); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" cx="0" cy="0" r="7" /></g><g transform="matrix(1 0 0 1 6 6)" ><line style="stroke: rgb(33,33,33); stroke-width: 2; stroke-dasharray: none; stroke-linecap: round; stroke-dashoffset: 0; stroke-linejoin: round; stroke-miterlimit: 4; fill: none; fill-rule: nonzero; opacity: 1;" x1="3" y1="3" x2="-3" y2="-3" /></g></g></svg></button>
+                </div>
+                <a class="header_login-btn" href="#">Login</a>
+            </div>
+        </header>
+        <main>
+            <div class="formRegister">
+                <form method="post">
+                    <h1 class="form_title">Añadir Usuario</h1>
+                    <div class="form_container">
+                        <label>Nombre completo*</label>
+                        <div class="row">
+                            <input type="text" name="name" placeholder="Introduzca su nombre completo" required>
+                        </div>
+                        <label>Edad*</label>
+                        <div class="row">
+                            <input type="text" name="age" placeholder="Introduzca su edad" required>
+                        </div>
+                        <label>Fecha de Nacimiento*</label>
+                        <div class="row">
+                            <input type="date" name="birthdate" required>
+                        </div>
+                        <label>Email*</label>
+                        <div class="row">
+                            <input type="email" name="email" placeholder="Introduzca su email" required>
+                        </div>
+                        <label>Telefono*</label>
+                        <div class="row">
+                            <input type="tel" name="phonenum" placeholder="Introduzca su numero telefonico" required>
+                        </div>
+                    </div>
+                    <div class="btn-row">
+                        <button id="btn-submit" type="submit">Registrar usuario</button>
+                    </div>
+                </form>
+            </div> 
+        </main>
+        <footer>
+            <div id="footer">
+                <div id="copy">
+                    &copy; 2024 Dvix-dev
+                </div>
+                <div id="footer_links">
+                    <li>Privacidad</li>
+                    <li>Terminos y Condiciones</li>
+                    <li>Acuerdo Legal</li>
+                    <li>About</li>
+                </div>
+            </div>
+        </footer>
+</body>
+</html>

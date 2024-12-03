@@ -273,9 +273,9 @@ function Deregister(){
                 }
             }
             if (encontrado) {
-                socios.splice(posicion, 1)
+                delete socios[posicion]
             } else {
-                mensaje = "El DNI "+busqueda+" no se encontró"
+                mensaje = "<h2>El DNI "+busqueda+" no se encontró</h2>"
             }
             break;
     
@@ -288,8 +288,6 @@ function Deregister(){
                 }
             }
             if (encontrado) {
-                console.log(posicion)
-                console.log(socios[posicion])
                 delete socios[posicion]
             } else {
                 mensaje = "El DNI "+busqueda+" no se encontró"
@@ -322,14 +320,14 @@ function ChangeLocation() {
     if (encontrado) {
         socios[posicion]['Location'] = newlocation
     } else {
-        mensaje = "El DNI "+busqueda+" no se encontró"
+        mensaje = "<h2>El DNI "+busqueda+" no se encontró</h2>"
     }
 
     if (encontrado){
         contenedor.innerHTML = '<h1>Localidad de socio con DNI '+busqueda+' cambió a '+newlocation+' correctamente ✔</h1>'
     } else {
-            contenedor.innerHTML = '<h1>No se ha podido cambiar la localidad del socio:</h1>'
-            contenedor.insertAdjacentHTML("beforeend",mensaje)     
+        contenedor.innerHTML = '<h1>No se ha podido cambiar la localidad del socio:</h1>'
+        contenedor.insertAdjacentHTML("beforeend",mensaje)     
     }
 
 }
