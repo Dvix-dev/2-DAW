@@ -193,6 +193,8 @@ function ShowUsers(array){
 
     const tableheaders = ['ID','DNI','Name','Lastname','Birthdate','Location','Category']
 
+    array = array.filter(socio => socio !== undefined && socio !== null)
+
     let tabla = document.createElement('table')
 
     let header = document.createElement('tr')
@@ -258,6 +260,7 @@ function Register(){
 function Deregister(){
     var busqueda = document.querySelector('input[name="busqueda"]').value
     var opcion = document.querySelector('select[name="opcion"]').value
+    let mensaje = ""
     var encontrado = false
 
     switch (opcion) {
@@ -270,9 +273,9 @@ function Deregister(){
                 }
             }
             if (encontrado) {
-                delete(socios[posicion])
+                socios.splice(posicion, 1)
             } else {
-                let mensaje = "El DNI "+busqueda+" no se encontró"
+                mensaje = "El DNI "+busqueda+" no se encontró"
             }
             break;
     
@@ -285,9 +288,11 @@ function Deregister(){
                 }
             }
             if (encontrado) {
-                delete(socios[posicion])
+                console.log(posicion)
+                console.log(socios[posicion])
+                delete socios[posicion]
             } else {
-                let mensaje = "El DNI "+busqueda+" no se encontró"
+                mensaje = "El DNI "+busqueda+" no se encontró"
             }
             break;
     }
@@ -302,6 +307,30 @@ function Deregister(){
 }
 
 function ChangeLocation() {
+    var busqueda = document.querySelector('input[name="busqueda"]').value
+    var newlocation = document.querySelector('input[name="newlocation"]').value
+    let mensaje = ""
+    var encontrado = false
+    for(i=0; i < socios.length; i++){
+        if (socios[i]['DNI'] == busqueda){
+            encontrado = true
+            var posicion = i
+            break
+        }
+    }
+
+    if (encontrado) {
+        socios[posicion]['Location'] = newlocation
+    } else {
+        mensaje = "El DNI "+busqueda+" no se encontró"
+    }
+
+    if (encontrado){
+        contenedor.innerHTML = '<h1>Localidad de socio con DNI '+busqueda+' cambió a '+newlocation+' correctamente ✔</h1>'
+    } else {
+            contenedor.innerHTML = '<h1>No se ha podido cambiar la localidad del socio:</h1>'
+            contenedor.insertAdjacentHTML("beforeend",mensaje)     
+    }
 
 }
 
