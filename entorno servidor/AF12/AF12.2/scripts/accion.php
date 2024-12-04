@@ -18,7 +18,7 @@
 </header>
 <main>
     <?php      
-        $nombre = $_POST['name'];
+        $nombre = htmlspecialchars($_POST['name']);
         $fnacimiento = $_POST['birthdate'];
         $edad = 2024 - explode("-",$fnacimiento)[0];
         $email = $_POST['email'];
