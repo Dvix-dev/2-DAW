@@ -102,7 +102,7 @@ img {
 }
 
 main {
-    max-height: 76vh;
+    max-height: calc(100vh - 164px);
     width: 100%;
     padding-block: 25px;
     display: flex;
@@ -240,13 +240,15 @@ footer {
 }
 
 .resultado::-webkit-scrollbar {
-    width: 5px;
+    width: 4px;
 }
+
 .resultado::-webkit-scrollbar-thumb {
-    background-color: #353535;
-    border-radius: 5px;
+    border-left: 3px #353535 solid;
+    border-block: 1px white solid;
+
 }
+
 .resultado::-webkit-scrollbar-track {
-    background-color: #c5c5c5;
     border-radius: 5px;
 }

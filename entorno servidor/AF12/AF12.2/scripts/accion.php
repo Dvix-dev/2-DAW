@@ -1,6 +1,5 @@
 <head>
-    <link rel="stylesheet" href="main.css">
-
+    <link rel="stylesheet" href="../main.css">
 </head>
 <header>
     <div class="logo">
@@ -8,7 +7,7 @@
         <h1>Ficheros - David Escutia de Haro</>
     </div>
     <div class="header_links">
-        <a href="./index.html">Home</a>
+        <a href="../index.html">Home</a>
         <a href="#">Blog</a>
         <div class="busqueda">
             <input class="header_search" type="text" placeholder="Búsqueda">
@@ -18,72 +17,68 @@
     </div>
 </header>
 <main>
-    <?php
-        if ($_POST['registro']){
-            echo ('<div class="formRegister">');
-            echo ('<form method="post" action="accion.php">');
-            echo ('<h1 class="form_title">Añadir Usuario</h1>');
-            echo ('<div class="form_container">');
-            echo ('<label>Nombre completo*</label>');
-            echo ('<div class="row">');
-            echo ('<input type="text" name="name" placeholder="Introduzca su nombre completo" required>');
-            echo ('</div>');
-            echo ('<label>Fecha de Nacimiento*</label>');
-            echo ('<div class="row">');
-            echo ('<input type="date" name="birthdate" required>');
-            echo ('</div>');
-            echo ('<label>Email*</label>');
-            echo ('<div class="row">');
-            echo ('<input type="email" name="email" placeholder="Introduzca su email" required>');
-            echo ('</div>');
-            echo ('<label>Telefono*</label>');
-            echo ('<div class="row">');
-            echo ('<input type="tel" name="phonenum" placeholder="Introduzca su numero telefonico" required>');
-            echo ('</div>');
-            echo ('</div>');
-            echo ('<div class="btn-row">');
-            echo ('<button id="btn-submit" type="submit">Registrar usuario</button>');
-            echo ('</div>');
-            echo ('</form>');
-            echo ('</div> ');
-        }
-
-        
+    <?php      
         $nombre = $_POST['name'];
         $fnacimiento = $_POST['birthdate'];
         $edad = 2024 - explode("-",$fnacimiento)[0];
         $email = $_POST['email'];
         $ntelefono = $_POST['phonenum'];
 
+        if (file_exists("../usuarios.txt")){
+            $fp = fopen("../usuarios.txt","r");
+        } else {
+            $create = fopen("../usuarios.txt","w");
+            $fp = fopen("../usuarios.txt","r");
+        }
+
+        $file = file("../usuarios.txt", FILE_IGNORE_NEW_LINES);
+        $contadorusuarios = 0;
+
+        foreach ($file as $line) {
+            if (str_starts_with($line, "-------------USUARIO")){
+                $contadorusuarios++;
+            }
+        }
+
         $infousuario = [
-            "-------------USUARIO-------------","\n",
+            "-------------USUARIO ". $contadorusuarios + 1 ." -----------","\n",
             "Nombre: ",$nombre,"\n",
             "Fecha de Naciemiento: ",$fnacimiento,"\n",
             "Edad: ",$edad,"\n",
-            "Email: ",$email,"\n",
-            "Numero de Telefono: ",$ntelefono,"\n","\n"
+            "E-mail: ",$email,"\n",
+            "Numero de Telefono: ",$ntelefono,"\n\n"
         ];
 
-        $fp = fopen("usuarios.txt","a");
+        $repetido = comprobarmail($email);
 
-        foreach ($infousuario as $key => $dato) {
-            fwrite($fp,$dato);
+        if (!$repetido){
+            $fp = fopen("../usuarios.txt","a");
+
+            foreach ($infousuario as $key => $dato) {
+                fwrite($fp,$dato);
+            }
+
+            fclose($fp);
+
+            $fp = fopen("../usuarios.txt","r");
+
+            echo('<div class="resultado">');
+            echo('<span class="doctitle">usuarios.txt</span><br>');
+            echo('<span><b>Usuarios registrados: '. $contadorusuarios + 1 .'</b></span><br>');
+            while (!feof($fp)){
+                $line = fgets($fp);
+                echo($line."<br>");
+            }
+            echo('</div>');
+
+            fclose($fp);
+        } else {
+            echo('<div class="resultado">');
+            echo('<span class="doctitle">El usuario ya se encuentra registrado ❌</span><br>');
+            echo('</div>');
         }
 
-
-        fclose($fp);
-
-        $fp = fopen("usuarios.txt","r");
-
-        echo('<div class="resultado">');
-        echo('<span class="doctitle">usuarios.txt</span><br>');
-        while (!feof($fp)){
-            $line = fgets($fp);
-            echo($line."<br>");
-        }
-        echo('</div>');
-
-        fclose($fp);
+        
     ?>
 </main>
 <footer>
@@ -99,3 +94,22 @@
         </div>
     </div>
 </footer>
+
+<?php
+    function comprobarmail($filemail){
+        $emails = [];
+        $file = file("../usuarios.txt", FILE_IGNORE_NEW_LINES);
+        foreach ($file as $line) {
+            if (str_starts_with($line, "E-mail: ")){
+                $email = explode(": ",$line)[1];
+                array_push($emails,$email);
+            }
+        }
+        foreach ($emails as $email) {
+            if ($filemail == $email) {
+                return true;
+            }
+        }
+        return false;
+    }
+?>

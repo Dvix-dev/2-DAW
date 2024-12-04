@@ -102,7 +102,7 @@ img {
 }
 
 main {
-    max-height: 76vh;
+    max-height: calc(100vh - 164px);
     width: 100%;
     padding-block: 25px;
     display: flex;
@@ -240,31 +240,39 @@ footer {
 }
 
 .resultado::-webkit-scrollbar {
-    width: 5px;
+    width: 4px;
 }
+
 .resultado::-webkit-scrollbar-thumb {
-    background-color: #353535;
-    border-radius: 5px;
+    border-left: 3px #353535 solid;
+    border-block: 1px white solid;
+
 }
+
 .resultado::-webkit-scrollbar-track {
-    background-color: #c5c5c5;
     border-radius: 5px;
 }
 
-.first_form-btn {
+button.first_form-btn {
     background-color: #006ed9;
     color: #fff;
     border: 2px solid transparent;
-    width: 40%;
+    width: 100%;
+    height: 100%;
     padding: 5px 10px;
     border-radius: 5px;
     font-size: 15px;
     transition: .3s;
+    margin-top: 0;
 }
 
-.first_form-btn:hover {
+button.first_form-btn:hover {
     background-color: transparent;
     color: #006ed9;
     border: 2px solid #006ed9;
     cursor: pointer;
+}
+
+a.first_form-btn {
+    width: 40%;
 }

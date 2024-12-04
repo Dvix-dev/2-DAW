@@ -9,8 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="favicon" href="assets/">
-    <link rel="stylesheet" href="./main.css">
-    <title>Ficheros - David Escutia de Haro</title>
+    <link rel="stylesheet" href="main.css">
+    <title>Título</title>
 </head>
 
 <body>
@@ -32,11 +32,28 @@
         </header>
         <main>
             <div class="formRegister">
-                <form method="post" action="accion.php" style="width: 260px;">
-                    <h1 class="form_title">Fichero Gestión Usuarios</h1>
+                <form method="post" action="scripts/accion.php">
+                    <h1 class="form_title">Añadir Usuario</h1>
+                    <div class="form_container">
+                        <label>Nombre completo*</label>
+                        <div class="row">
+                            <input type="text" name="name" placeholder="Introduzca su nombre completo" required>
+                        </div>
+                        <label>Fecha de Nacimiento*</label>
+                        <div class="row">
+                            <input type="date" name="birthdate" required>
+                        </div>
+                        <label>Email*</label>
+                        <div class="row">
+                            <input type="email" name="email" placeholder="Introduzca su email" required>
+                        </div>
+                        <label>Telefono*</label>
+                        <div class="row">
+                            <input type="tel" name="phonenum" placeholder="Introduzca su numero telefonico" required>
+                        </div>
+                    </div>
                     <div class="btn-row">
-                        <a href="form.html" class="first_form-btn"><button class="first_form-btn" type="button">REGISTRO</button></a>
-                        <a href="scripts/usuarios.php" class="first_form-btn"><button class="first_form-btn" type="button">MOSTRAR USUARIOS</button></a>
+                        <button id="btn-submit" type="submit">Registrar usuario</button>
                     </div>
                 </form>
             </div> 
