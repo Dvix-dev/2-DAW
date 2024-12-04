@@ -74,7 +74,7 @@
             fclose($fp);
         } else {
             echo('<div class="resultado">');
-            echo('<span class="doctitle">El usuario ya se encuentra registrado ❌</span><br>');
+            echo('<span class="doctitle">El usuario ya se encuentra registrado ❌</span>');
             echo('</div>');
         }
 
