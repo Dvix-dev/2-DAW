@@ -1,0 +1,21 @@
+-------------USUARIO-------------
+Nombre: David
+Fecha de Naciemiento: 2024-11-13
+Edad: 0
+Email: davidescutiadeharo@hotmail.com
+Numero de Telefono: 7687272637
+
+-------------USUARIO-------------
+Nombre: David
+Fecha de Naciemiento: 2024-11-13
+Edad: 0
+Email: davidescutiadeharo@hotmail.com
+Numero de Telefono: 7687272637
+
+-------------USUARIO-------------
+Nombre: David
+Fecha de Naciemiento: 2024-11-13
+Edad: 0
+Email: davidescutiadeharo@hotmail.com
+Numero de Telefono: 7687272637
+

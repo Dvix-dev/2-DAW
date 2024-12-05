@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Kanit:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+@import url(https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic);
 
 :root {
     --background: #eff2f6;
@@ -41,7 +42,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 520px;
+    font-family: 'Rubik';
+    width: 570px;
     height: 100%;
 }
 
@@ -177,6 +179,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    font-family: 'Rubik';
     margin-inline: 80px;
     height: 50px;
 }
@@ -211,23 +214,349 @@ footer {
     box-sizing: border-box;
 }
 
-.doctitle{
-    font-size: 25px;
+.main_item-header {
+    display: inline-flex;
+    gap: 6px;
+}
+
+.sub_item {
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.desplegable-icon {
+    rotate: 90deg;
+    transition: .4s;
+}
+
+.animation:hover .desplegable-icon {
+    rotate: 270deg;
+}
+
+.desplegable-icon2 {
+    transition: .4s;
+}
+
+.animation2:hover .desplegable-icon2 {
+    rotate: 180deg;
+}
+
+.ceramica {
+    position: relative;
+}
+
+.ceramica:hover .ceramica-ddwn {
     display: block;
-    width: fit-content;
-    font-weight: 600;
 }
 
-.resultado::-webkit-scrollbar {
-    width: 4px;
+.ceramica-ddwn {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 230px;
+    background-color: #000000ba;
 }
 
-.resultado::-webkit-scrollbar-thumb {
-    border-left: 3px #353535 solid;
-    border-block: 1px white solid;
-
+.ceramica-ddwn > div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-inline: 15px;
 }
 
-.resultado::-webkit-scrollbar-track {
-    border-radius: 5px;
+.ceramica-ddwn > div:hover {
+    background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
+}
+
+.artistica {
+    position: relative;
+}
+
+.artistica:hover .artistica-ddwn {
+    display: block;
+}
+
+.artistica-ddwn {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 230px;
+    width: 80px;
+    background-color: #000000ba;
+}
+
+.artistica-ddwn > div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-inline: 15px;
+}
+
+.artistica-ddwn > div:hover {
+    background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
+}
+
+.recipientes {
+    position: relative;
+}
+
+.recipientes:hover .recipientes-ddwn {
+    display: block;
+}
+
+.recipientes-ddwn {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 230px;
+    width: 101px;
+    background-color: #000000ba;
+}
+
+.recipientes-ddwn > div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-inline: 15px;
+}
+
+.recipientes-ddwn > div:hover {
+    background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
+}
+
+.metal {
+    position: relative;
+}
+
+.metal:hover .metal-ddwn {
+    display: block;
+}
+
+.metal-ddwn {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 125px;
+    background-color: #000000ba;
+}
+
+.metal-ddwn > div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-inline: 15px;
+}
+
+.metal-ddwn > div:hover {
+    background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
+}
+
+.fundicion {
+    position: relative;
+}
+
+.fundicion:hover .fundicion-ddwn {
+    display: block;
+}
+
+.fundicion-ddwn {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 125px;
+    width: 101px;
+    background-color: #000000ba;
+}
+
+.fundicion-ddwn > div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-inline: 15px;
+}
+
+.fundicion-ddwn > div:hover {
+    background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
+}
+
+.historico {
+    position: relative;
+}
+
+.historico:hover .historico-ddwn {
+    display: block;
+}
+
+.historico-ddwn {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 100px;
+    width: 108px;
+    background-color: #000000ba;
+}
+
+.historico-ddwn > div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-inline: 15px;
+}
+
+.historico-ddwn > div:hover {
+    background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
+}
+
+.forja {
+    position: relative;
+}
+
+.forja:hover .forja-ddwn {
+    display: block;
+}
+
+.forja-ddwn {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 125px;
+    width: 108px;
+    background-color: #000000ba;
+}
+
+.forja-ddwn > div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-inline: 15px;
+}
+
+.forja-ddwn > div:hover {
+    background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
+}
+
+.m_artistica {
+    position: relative;
+}
+
+.m_artistica:hover .m_artistica-ddwn {
+    display: block;
+}
+
+.m_artistica-ddwn {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 108px;
+    width: 170px;
+    background-color: #000000ba;
+}
+
+.m_artistica-ddwn > div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-inline: 15px;
+}
+
+.m_artistica-ddwn > div:hover {
+    background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
+}
+
+.m_recipientes {
+    position: relative;
+}
+
+.m_recipientes:hover .m_recipientes-ddwn {
+    display: block;
+}
+
+.m_recipientes-ddwn {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 170px;
+    width: 101px;
+    background-color: #000000ba;
+}
+
+.m_recipientes-ddwn > div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-inline: 15px;
+}
+
+.m_recipientes-ddwn > div:hover {
+    background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
+}
+
+.tradicional {
+    position: relative;
+}
+
+.tradicional:hover .tradicional-ddwn {
+    display: block;
+}
+
+.tradicional-ddwn {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 170px;
+    width: 101px;
+    background-color: #000000ba;
+}
+
+.tradicional-ddwn > div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-inline: 15px;
+}
+
+.tradicional-ddwn > div:hover {
+    background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
+}
+
+.artesania_etnica {
+    position: relative;
+}
+
+.artesania_etnica:hover .artesania_etnica-ddwn {
+    display: block;
+}
+
+.artesania_etnica-ddwn {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    width: 177px;
+    background-color: #000000ba;
+}
+
+.artesania_etnica-ddwn > div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-inline: 15px;
+}
+
+.artesania_etnica-ddwn > div:hover {
+    background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
 }

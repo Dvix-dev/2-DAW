@@ -1,2 +1,9 @@
 Entorno servidor.
 Importante - fgetcsv() para la practica de la web de cocina
+
+Fichero txt por cada receta
+carpeta imagenes
+fichero .txt -> nº registro, ruta imagen (están en otra carpeta), nombre receta, descripcion corta, archivo pdf (están en otra carpeta)
+
+Página principal: 2 botones, filtrar, con un formulario para filtrar y crear, con otro formulario con todos los campos y un input type
+file para los pdf. De primeras Aparecen las imagenes con nombre y descripcion corta, asi como un boton que te abre el PDF
