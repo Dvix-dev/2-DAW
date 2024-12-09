@@ -1,5 +1,6 @@
 @import url(https://fonts.googleapis.com/css?family=Kanit:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
 @import url(https://fonts.googleapis.com/css?family=Rubik:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Caveat:regular,500,600,700);
 
 :root {
     --background: #eff2f6;
@@ -9,6 +10,7 @@
 body {
     background-image: url(https://images.pexels.com/photos/163999/pexels-photo-163999.jpeg);
     background-size: contain;
+    background-attachment: fixed;
     margin: 0;
     font-family: sans-serif;
     display: flex;
@@ -43,8 +45,8 @@ header {
     align-items: center;
     justify-content: center;
     font-family: 'Rubik';
-    width: 570px;
-    height: 100%;
+    width: 710px;
+    height: 60px;
 }
 
 .header_links > div {
@@ -59,6 +61,19 @@ header {
 .header_links > div:hover {
     background-color: hsl(0, 0%, 3%);
     cursor: pointer;
+}
+
+.header_links > a:last-of-type {
+    background-color: #f4ecda;
+    color: #353535;
+    padding: 10px;
+    border-radius: 5px;
+    transition: .4s;
+    margin-left: 5px;
+}
+
+.header_links > a:last-of-type:hover {
+    background-color: #c4b9a2;
 }
 
 img {
@@ -82,12 +97,17 @@ img {
 }
 
 main {
-    max-height: calc(100vh - 164px);
+    /* max-height: calc(100vh - 164px); */
     width: 100%;
     padding-block: 25px;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+}
+
+img.landing {
+    width: 1000px;
+    box-shadow: 4px 4px 20px 11px #181818;
 }
 
 h1 {
@@ -200,7 +220,7 @@ footer {
 
 #footer_links > li:hover {
     cursor: pointer;
-    color: #006ed9;
+    color: lemonchiffon;
 }
 
 .resultado {
@@ -239,6 +259,22 @@ footer {
 }
 
 .animation2:hover .desplegable-icon2 {
+    rotate: 180deg;
+}
+
+.desplegable-icon3 {
+    transition: .4s;
+}
+
+.animation3:hover .desplegable-icon3 {
+    rotate: 180deg;
+}
+
+.desplegable-icon4 {
+    transition: .4s;
+}
+
+.animation4:hover .desplegable-icon4 {
     rotate: 180deg;
 }
 
@@ -371,7 +407,7 @@ footer {
     position: absolute;
     top: 0px;
     left: 125px;
-    width: 101px;
+    width: 120px;
     background-color: #000000ba;
 }
 
@@ -399,7 +435,7 @@ footer {
     display: none;
     position: absolute;
     top: 0px;
-    left: 100px;
+    left: 120px;
     width: 108px;
     background-color: #000000ba;
 }
@@ -429,7 +465,7 @@ footer {
     position: absolute;
     top: 0px;
     left: 125px;
-    width: 108px;
+    width: 130px;
     background-color: #000000ba;
 }
 
@@ -457,8 +493,8 @@ footer {
     display: none;
     position: absolute;
     top: 0px;
-    left: 108px;
-    width: 170px;
+    left: 130px;
+    width: 190px;
     background-color: #000000ba;
 }
 
@@ -486,7 +522,7 @@ footer {
     display: none;
     position: absolute;
     top: 0px;
-    left: 170px;
+    left: 190px;
     width: 101px;
     background-color: #000000ba;
 }
@@ -515,8 +551,8 @@ footer {
     display: none;
     position: absolute;
     top: 0px;
-    left: 170px;
-    width: 101px;
+    left: 130px;
+    width: 150px;
     background-color: #000000ba;
 }
 
@@ -528,6 +564,122 @@ footer {
 }
 
 .tradicional-ddwn > div:hover {
+    background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
+}
+
+.cabeceros {
+    position: relative;
+}
+
+.cabeceros:hover .cabeceros-ddwn {
+    display: block;
+}
+
+.cabeceros-ddwn {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 150px;
+    width: 177px;
+    background-color: #000000ba;
+}
+
+.cabeceros-ddwn > div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-inline: 15px;
+}
+
+.cabeceros-ddwn > div:hover {
+    background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
+}
+
+.madera {
+    position: relative;
+}
+
+.madera:hover .madera-ddwn {
+    display: block;
+}
+
+.madera-ddwn {
+    display: none;
+    position: absolute;
+    top: 60px;
+    left: 0px;
+    width: 155px;
+    background-color: #000000ba;
+}
+
+.madera-ddwn > div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-inline: 15px;
+}
+
+.madera-ddwn > div:hover {
+    background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
+}
+
+.nacional {
+    position: relative;
+}
+
+.nacional:hover .nacional-ddwn {
+    display: block;
+}
+
+.nacional-ddwn {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 155px;
+    width: 100px;
+    background-color: #000000ba;
+}
+
+.nacional-ddwn > div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-inline: 15px;
+}
+
+.nacional-ddwn > div:hover {
+    background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
+}
+
+.internacional {
+    position: relative;
+}
+
+.internacional:hover .internacional-ddwn {
+    display: block;
+}
+
+.internacional-ddwn {
+    display: none;
+    position: absolute;
+    top: 0px;
+    left: 155px;
+    width: 177px;
+    background-color: #000000ba;
+}
+
+.internacional-ddwn > div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-inline: 15px;
+}
+
+.internacional-ddwn > div:hover {
     background-color: hsl(0, 0%, 3%);
     cursor: pointer;
 }
@@ -558,5 +710,64 @@ footer {
 
 .artesania_etnica-ddwn > div:hover {
     background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
+}
+
+g {
+    fill: #f4ecda;
+}
+
+section {
+    margin: 20px;
+    max-width: 1000px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+h2 {
+    background-color: #f4ecda81;
+    width: fit-content;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.producto {
+    display: inline-block;
+    width: 200px;
+    margin: 10px;
+    background-color: white;
+    padding: 10px;
+    text-align: center;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 63%);
+}
+
+.producto img {
+    width: 100%;
+    max-height: 200px;
+    object-fit: cover;
+    object-position: bottom;
+}
+
+.producto > p {
+    text-align: justify;
+    font-size: 15px;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #555;
+}
+
+.productos-sect > h2 > u:hover {
     cursor: pointer;
 }
