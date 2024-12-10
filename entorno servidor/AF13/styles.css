@@ -117,22 +117,25 @@ section.recipes > h2 {
 }
 
 .recipes-container {
-    display: flex;
+    /* display: flex;
     flex-wrap: wrap;
-    justify-content: flex-start;
+    justify-content: flex-start; */
     padding: 0 30px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    justify-items: center;
 }
 
 article {
     display: flex;
     flex-direction: column;
-    background-image: url(images/no-img.jpg);
+    background-image: url(images/pollo.jpg);
     border-radius: 5px;
     background-size: cover;
     background-position: center;
     box-shadow: 0px 6px 5px #000000b5;
     margin-top: 20px;
-    margin-inline: 30px;
+    /* margin-inline: 30px; */
     overflow: hidden;
     width: 250px;
     height: 400px;
@@ -273,6 +276,24 @@ button[type="submit"]:hover {
 }
 
 /* Media Queries */
+@media (max-width: 1520px) {
+    .recipes-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1170px) {
+    .recipes-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 815px) {
+    .recipes-container {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
 
     main{
