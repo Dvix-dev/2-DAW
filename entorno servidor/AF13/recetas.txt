@@ -1,0 +1,6 @@
+1	Pollo asado	Delicioso pollo asado para disfrutar con toda la familia	Guisos	./images/pollo.jpg	./pdfs/AF13_Puntuable_FICHEROS_COCINA.pdf
+2	fhcfg	IOHJASFasd		./images/producto4.jpg	./pdfs/Practica 2 - Ejercicios curl.pdf
+2	fhcfg	IOHJASFasd		./images/producto4.jpg	./pdfs/Practica 2 - Ejercicios curl.pdf
+2	fhcfg	IOHJASFasd		./images/producto4.jpg	./pdfs/Practica 2 - Ejercicios curl.pdf
+2	fhcfg	IOHJASFasd		./images/producto4.jpg	./pdfs/Practica 2 - Ejercicios curl.pdf
+2	fhcfg	IOHJASFasd		./images/producto4.jpg	./pdfs/Practica 2 - Ejercicios curl.pdf
