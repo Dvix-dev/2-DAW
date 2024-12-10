@@ -1,0 +1,106 @@
+@import url(https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic);
+
+body {
+    font-family: 'Poppins';
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    background-color: #efefef;
+}
+
+.formulario {
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    width: 390px;
+    box-shadow: 0px 4px 5px #555555;
+}
+
+h2 {
+    color: #2a3d66;
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 30px;
+}
+
+h3 {
+    margin-top: 0;
+    font-weight: 500;
+    color: #333;
+}
+
+form {
+    display: grid;
+    gap: 15px;
+}
+
+form .campo:not(.sugerencia) {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+}
+
+.sugerencia {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+textarea {
+    height: 90px;
+    resize: none;
+}
+
+form .campo label {
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.fila {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+form input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.botones {
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    gap: 10px;
+}
+
+form button {
+    background-color: #2a3d66;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+form button:hover {
+    background-color: #112246;
+}
+
+form button[type="submit"] {
+    grid-column: 1/8;
+}
+
+form button[type="reset"] {
+    background-color: #e74c3c;
+    grid-column: 8/9;
+}
+
+form button[type="reset"]:hover {
+    background-color: #9e2518;
+}

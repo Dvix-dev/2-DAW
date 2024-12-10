@@ -1,0 +1,2 @@
+# Indica cuál es el tipo de estructura de navegación más adecuado y explica el motivo.
+Considero que la estructura de navegacion mas adecuada es ordenar todas las diferentes secciones en carpetas, ya que son muchas secciones distintas y de esta manera el navegador seguiría una ruta adecuada y con lógica.
