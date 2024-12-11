@@ -4,7 +4,6 @@ $file = file("../recetas.txt");
 if ($file > 0){
     foreach ($file as $line){
         $id = explode("\t",$line)[0];
-        print($id);
     }
 }
 
@@ -26,12 +25,18 @@ if (isset($_POST['recipeCategory'])){
     }
 }
 
+if (!file_exists('../images')){
+    mkdir('../images');
+}
 $thumbnail = $_FILES['recipeThumbnail'];
 $thumbnailName = $thumbnail['name'];
 $thumbnailTemp = $thumbnail['tmp_name'];
 $thumbnailPath = "./images/" . basename($thumbnailName);
 $thumbnailDest = "../images/" . basename($thumbnailName);
 
+if (!file_exists('../pdfs')){
+    mkdir('../pdfs');
+}
 $pdf = $_FILES['recipeInstructions'];
 $pdfName = $pdf['name'];
 $pdfTemp = $pdf['tmp_name'];

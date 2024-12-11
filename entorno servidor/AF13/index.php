@@ -56,29 +56,64 @@
             <hr class="separator">
             <section class="recipes">
                 <h2>Recetas</h2>
-                <div class="recipes-container">
-                    <?php
+                <?php
+                    if (!isset($_GET['filtered'])){
                         if (!$vacio){
+                            print ('<div class="recipes-container">');
                             foreach ($recipes as $recipe){
                                 $arrayRecipe = explode("\t",$recipe);
-                                print ('<article class="recipe" style="background-image: url('. $arrayRecipe[4] .');">');
-                                    if ($arrayRecipe[3] != ""){
+                                    print ('<article class="recipe" style="background-image: url('. $arrayRecipe[4] .');">');
+                                    if ($arrayRecipe[3] != ""){     // Etiquetas
                                         print('<div class="recipe-categories">');
                                             print('<div class="recipe-category"><img src="https://cdn-icons-png.flaticon.com/512/4007/4007511.png" width="20px"><span>'. $arrayRecipe[3] .'</span></div>');
                                         print('</div>');
                                     }
                                     print ('<div class="recipe-data">');
-                                        print ('<h4>'. $arrayRecipe[1] .'</h4>');
-                                        print ('<p>'. $arrayRecipe[2] .'</p>');
+                                        print ('<h4>'. $arrayRecipe[1] .'</h4>');   // Titulo
+                                        print ('<p>'. $arrayRecipe[2] .'</p>');     // Descripcion
                                         print ('<a href="'. $arrayRecipe[5] .'" target="_blank"><button>Ver PDF</button></a>');
                                     print ('</div>');
-                                print ('</article>');
-                            }
+                                    print ('</article>');
+                            } 
                         } else {
                             echo ("<h3 style='margin: auto'>No hay recetas para mostrar 😵‍💫</h3>");
                         }
-                    ?>
+                    } else {
+                        $filter = explode(",",$_GET['filter']);
+                        
+                        if ($filter == [""]){
+                            $coincidences = 0;
+                        } else {
+                            $coincidences = count($filter);
+                        }
+
+                        print('Filtro: Hubieron <b>'. $coincidences .'</b> recetas coincidientes');
+                        print ('<div class="recipes-container">');
+                            foreach ($recipes as $recipe){
+                                $arrayRecipe = explode("\t",$recipe);
+                                if (in_array( $arrayRecipe[0], $filter)){
+                                    print ('<article class="recipe" style="background-image: url('. $arrayRecipe[4] .');">');
+                                    if ($arrayRecipe[3] != ""){     // Etiquetas
+                                        print('<div class="recipe-categories">');
+                                            print('<div class="recipe-category"><img src="https://cdn-icons-png.flaticon.com/512/4007/4007511.png" width="20px"><span>'. $arrayRecipe[3] .'</span></div>');
+                                        print('</div>');
+                                    }
+                                    print ('<div class="recipe-data">');
+                                        print ('<h4>'. $arrayRecipe[1] .'</h4>');   // Titulo
+                                        print ('<p>'. $arrayRecipe[2] .'</p>');     // Descripcion
+                                        print ('<a href="'. $arrayRecipe[5] .'" target="_blank"><button>Ver PDF</button></a>');
+                                    print ('</div>');
+                                    print ('</article>');
+                                }
+                            }
+                        }
+                ?>
                 </div>
+                <?php
+                    if (isset($_GET['filtered'])){
+                        print('<a href="index.php"><button class="btn" style="margin-top: 20px">Borrar Filtros</button></a>');
+                    }
+                ?>
             </section>
         </div>
 
@@ -112,7 +147,7 @@
                             <input type="checkbox" class="recipeCategory" name="recipeCategory[]" value="Bebidas"><span>Bebidas</span>
                         </div>
                     </div>
-                    
+
                     <label for="recipeThumbnail">Imagen:</label>
                     <input type="file" accept=".jpg,.png,.jpeg" id="recipeThumbnail" name="recipeThumbnail" required></input>
 
@@ -130,30 +165,40 @@
             <div class="modal-content">
                 <span id="closeFilterModalBtn" class="close">&times;</span>
                 <h2>Filtrar Recetas</h2>
-                <form id="filterForm">
-                    <label for="ingredientFilter">Nombre:</label>
-                    <input type="text" id="ingredientFilter" name="ingredientFilter" placeholder="Ej. Tortilla de patatas">
-                    <label for="categoryFilter">Tipo:</label>
-                    <select id="categoryFilter" name="categoryFilter">
-                        <option value="" disabled selected>-- Selecciona una categoria --</option>
-                        <option value="verduras">Verduras</option>
-                        <option value="guisos">Almuerzo</option>
-                        <option value="arroces">Arroces</option>
-                        <option value="postres">Postres</option>
-                        <option value="bebidas">Bebidas</option>
-                    </select>
+                <form id="filterForm" action="php/filterRecipes.php" method="post">
+                    <label for="nameFilter">Nombre:</label>
+                    <input type="text" id="nameFilter" name="nameFilter" placeholder="Ej. Tortilla de patatas">
+
+                    <label for="categoryFilter">Tipo(s):</label>
+                    <div class="category-container">
+                        <div class="add_category">
+                            <input type="checkbox" class="filterCategory" name="filterCategory[]" value="Verduras"><span>Verduras</span>
+                        </div>
+                        <div class="add_category">
+                            <input type="checkbox" class="filterCategory" name="filterCategory[]" value="Guisos"><span>Guisos</span>
+                        </div>
+                        <div class="add_category">
+                            <input type="checkbox" class="filterCategory" name="filterCategory[]" value="Arroces"><span>Arroces</span>
+                        </div>
+                        <div class="add_category">
+                            <input type="checkbox" class="filterCategory" name="filterCategory[]" value="Postres"><span>Postres</span>
+                        </div>
+                        <div class="add_category">
+                            <input type="checkbox" class="filterCategory" name="filterCategory[]" value="Bebidas"><span>Bebidas</span>
+                        </div>
+                    </div>
 
                     <button type="submit" class="btn">Aplicar Filtros</button>
                 </form>
             </div>
         </div>
-    </main> 
+    </main>
 
     <!-- Footer -->
     <footer class="footer">
         <p>&copy; Recetas de cocina by Dvix-dev - 2024 </p>
     </footer>
-
+    
     <script src="script.js"></script>
 </body>
 </html>
