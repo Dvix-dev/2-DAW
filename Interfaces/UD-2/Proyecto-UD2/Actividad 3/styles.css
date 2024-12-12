@@ -4,6 +4,10 @@
     box-sizing: border-box;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
@@ -14,6 +18,7 @@ header {
     display: flex;
     text-align: center;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
     background-color: #2a3d66;
     color: white;
@@ -161,7 +166,16 @@ footer {
 }
 
 @media (max-width: 768px) {
+    header {
+        justify-content: center;
+    }
+
     .container {
         grid-template-columns: 1fr;
+    }
+
+    #asociate {
+        grid-column: 1/2;
+        grid-row: 5/8;
     }
 }
