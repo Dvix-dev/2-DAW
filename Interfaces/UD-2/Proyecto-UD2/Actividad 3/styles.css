@@ -180,6 +180,14 @@ footer {
     color: white;
 }
 
+.error:valid {
+    border: 1px solid green;
+}
+
+.error:invalid {
+    border: 1px solid red;
+}
+
 @media (max-width: 768px) {
     header {
         justify-content: center;
