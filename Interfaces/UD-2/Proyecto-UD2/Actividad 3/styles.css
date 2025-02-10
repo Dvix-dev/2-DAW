@@ -1,7 +1,15 @@
+:root {
+    --principal: #037336;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
 }
 
 body {
@@ -14,8 +22,9 @@ header {
     display: flex;
     text-align: center;
     align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
-    background-color: #2a3d66;
+    background-color: var(--principal);
     color: white;
     padding: 20px;
 }
@@ -66,7 +75,7 @@ header nav ul li a:hover {
 }
 
 .section h2 {
-    color: #2a3d66;
+    color: var(--principal);
     margin-bottom: 15px;
 }
 
@@ -126,7 +135,7 @@ form input {
 }
 
 form button {
-    background-color: #2a3d66;
+    background-color: var(--principal);
     color: white;
     border: none;
     padding: 10px 20px;
@@ -136,7 +145,7 @@ form button {
 }
 
 form button:hover {
-    background-color: #112246;
+    background-color: #054522;
 }
 
 form button[type="submit"] {
@@ -144,24 +153,52 @@ form button[type="submit"] {
 }
 
 form button[type="reset"] {
-    background-color: #e74c3c;
+    background-color: transparent;
+    border: 2px solid red;
+    /* background-color: #e74c3c; */
     grid-column: 8/9;
 }
 
+.papelera-icon {
+    fill: red;
+}
+
 form button[type="reset"]:hover {
-    background-color: #9e2518;
+    background-color: red;
+    /* background-color: #9e2518; */
+}
+
+form button[type="reset"]:hover .papelera-icon {
+    fill: white;
 }
 
 /* Estilo de pie de página */
 footer {
     text-align: center;
     padding: 20px;
-    background-color: #2a3d66;
+    background-color: var(--principal);
     color: white;
 }
 
+.error:valid {
+    border: 1px solid green;
+}
+
+.error:invalid {
+    border: 1px solid red;
+}
+
 @media (max-width: 768px) {
+    header {
+        justify-content: center;
+    }
+
     .container {
         grid-template-columns: 1fr;
+    }
+
+    #asociate {
+        grid-column: 1/2;
+        grid-row: 5/8;
     }
 }
