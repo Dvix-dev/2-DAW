@@ -16,17 +16,19 @@ try {
     echo "❌ Error de conexión: " . $e->getMessage();
 }
 
+// Datos del formulario
 $user = $_POST["user"];
 $password = $_POST["password"];
 
-print_head();
-print_header();
 
 // Verificar usuario en la base de datos
 $query = "SELECT * FROM usuarios WHERE nombre = '$user'";
 $stmt = $bdd_prueba->prepare($query);
 $stmt->execute();
 $user_data = $stmt->fetch();
+
+print_head();
+print_header();
 
 echo "<main>";
 echo "<div id='resultados'>";

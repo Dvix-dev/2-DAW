@@ -5,6 +5,7 @@ include "functions.php";
 print_head();
 print_header();
 
+// Datos del formulario
 $codplanta = isset($_POST['codplanta']) ? trim(htmlspecialchars($_POST['codplanta'])) : null;
 $name = isset($_POST['name']) ? trim(htmlspecialchars($_POST['name'])) : null;
 $plant_date = isset($_POST['plant_date']) ? $_POST['plant_date'] : null;
