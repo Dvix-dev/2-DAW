@@ -3,7 +3,6 @@ function print_head() {
     echo "<head>";
 
     echo "<link rel='stylesheet' href='../main.css'>";
-    echo "<link rel='stylesheet' href='login.css'>";
 
     echo "</head>";
 
