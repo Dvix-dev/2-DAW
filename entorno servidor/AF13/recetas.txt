@@ -1,4 +1,3 @@
 1	Pollo asado	Delicioso pollo asado para disfrutar con toda la familia	Guisos	./images/pollo.jpg	./pdfs/AF13_Puntuable_FICHEROS_COCINA.pdf
-2	fhcfg	IOHJASFasd		./images/pollo.jpg	./pdfs/Practica 2 - Ejercicios curl.pdf
 3	Pollo 4	hola	Verduras, Arroces	./images/Word.jpg	./pdfs/AF7_Puntuable_php.pdf
 4	Espaguetis	Espaguetis Espaguetis Espaguetis Espaguetis Espaguetis Espag	Verduras, Guisos	./images/105667377.png	./pdfs/Informe T1.1.pdf

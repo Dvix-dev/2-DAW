@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="David Escutia de Haro">
+    <meta name="author" content="Dvix">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="favicon" href="assets/">
+    <link rel="stylesheet" href="main.css">
+    <title>AF 15.1</title>
+</head>
+<body>
+    <div id="background"></div>
+    <header>
+        <div>
+            <img src="https://dvix.es/sources/Dvix%20verde.png" id="logo">
+            <hr>
+            <h1>AF 15.1</h1>
+        </div>
+    </header>
+    <main>
+        <div id="form">
+            <h1 class="form-title">Actividad Formativa 15.1</h1>
+            <hr>
+            <form action="php/scripts.php" method="post">
+                <div class="form-row">
+                    <label for="codplanta">Código planta*:</label>
+                    <input type="text" name="codplanta" maxlength="5" id="codplanta" required>
+                </div>
+                <div class="form-row">
+                    <label for="name">Nombre:</label>
+                    <input type="text" name="name" maxlength="50" id="name">
+                </div>
+                <div class="form-row">
+                    <label for="plant_date">Fecha de plantación:</label>
+                    <input type="date" name="plant_date" id="plant_date">
+                </div>
+                <div class="form-row">
+                    <label for="cant">Numero de ejemplares:</label>
+                    <input type="number" name="cant" id="cant">
+                </div>
+                <div class="button-row">
+                    <button type="submit" name="button" value="insert">Insertar</button>
+                    <button type="submit" name="button" value="update">Actualizar</button>
+                    <button type="reset">Limpiar</button>
+                </div>
+            </form>
+        </div>
+    </main>
+</body>
+</html>

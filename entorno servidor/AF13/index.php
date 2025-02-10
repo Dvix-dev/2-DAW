@@ -120,7 +120,6 @@
         <!-- Modal para Añadir Receta -->
         <div id="addRecipeModal" class="modal">
             <div class="modal-content">
-                <span id="closeModalBtn" class="close">&times;</span>
                 <h2>Añadir Nueva Receta</h2>
                 <form id="recipeForm" action="php/addRecipe.php" method="post" enctype="multipart/form-data">
                     <label for="recipeName">Nombre de la receta:</label>
@@ -163,7 +162,6 @@
         <!-- Modal para Filtrar Recetas -->
         <div id="filterModal" class="modal">
             <div class="modal-content">
-                <span id="closeFilterModalBtn" class="close">&times;</span>
                 <h2>Filtrar Recetas</h2>
                 <form id="filterForm" action="php/filterRecipes.php" method="post">
                     <label for="nameFilter">Nombre:</label>

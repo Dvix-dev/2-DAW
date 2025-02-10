@@ -1,0 +1,15 @@
+#resultados {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-inline: auto;
+    width: fit-content;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background-color: #f0f0f0;
+}
+
+#flecha {
+    margin-block: 45px;
+    margin-left: 80px;
+}

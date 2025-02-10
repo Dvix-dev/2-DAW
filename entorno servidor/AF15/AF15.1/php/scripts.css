@@ -1,0 +1,32 @@
+#resultados {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-inline: auto;
+    width: fit-content;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background-color:  #ffffffc3;
+}
+
+#flecha {
+    margin-block: 45px;
+}
+
+.flex-center {
+    display: flex;
+    width: fit-content;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.error {
+    color: red;
+    font-size: 21px;
+}
+
+.success {
+    color: green;
+    font-size: 21px;
+}

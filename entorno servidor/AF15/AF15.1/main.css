@@ -1,0 +1,115 @@
+@import url(https://fonts.googleapis.com/css?family=Finlandica:regular,500,600,700,italic,500italic,600italic,700italic);
+
+* {
+    font-family: 'Finlandica', sans-serif;
+}
+
+body {
+    margin: 0;
+    background-color: black;
+}
+
+#background {
+    background-image: url(https://wallpapers.com/images/hd/plant-background-mh4y9mexexlv960o.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    filter: blur(6px) grayscale(30%);
+    box-shadow: inset 0px 0px 60px 20px rgb(0 0 0);
+}
+
+header {
+    background-color: white;
+    color: #333;
+    padding: 1rem;
+}
+
+header > div {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: fit-content;
+    align-items: center;
+}
+
+header > div > h1 {
+    margin: 0;
+    padding: 0;
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: #333;
+}
+
+header > div > hr {
+    height: 30px;
+    margin-right: 10px;
+}
+
+#logo {
+    width: 50px;
+}
+
+main {
+    display: flex;
+    height: 90vh;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-title {
+    margin: 0;
+}
+
+#form {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-inline: auto;
+    width: fit-content;
+    padding: 20px;
+    border: 1px solid #000;
+    border-radius: 10px;
+    background-color: #ffffffc3;
+    /* background-color: #f0f0f0; */
+}
+
+input {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #000;
+    box-sizing: border-box;
+    width: 195px;
+}
+
+.form-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.button-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-top: 5px;
+    align-items: center;
+}
+
+.button-row > button {
+    padding: 7px 20px;
+    font-size: 15px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid #000;
+    background-color: #ffffff;
+    cursor: pointer;
+}
