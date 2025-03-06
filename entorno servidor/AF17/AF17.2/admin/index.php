@@ -3,10 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/3565/3565418.png" type="image/x-icon">
+    <link rel="shortcut icon" href="https://cdn-icons-png.freepik.com/256/1139/1139048.png?semt=ais_hybrid" type="image/x-icon">
     <title>Panel Administrativo</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../styles.css">
     <link rel="stylesheet" href="./admin.css">
 
 </head>
@@ -18,19 +17,13 @@
 
     $recipes = get_recipes($bdd_cocina);
     $categorias = get_categories($bdd_cocina);
-
-    if (count($recipes) == 0){
-        $vacio = true;
-    } else {
-        $vacio = false;
-    }
 ?>
 
 <body>
     <!-- Header -->
     <header class="header">
         <div class="logo">
-            <h1>Panel Administrativo</h1>
+            <h1>Recetas de Cocina</h1>
         </div>
         <nav>
             <ul>
@@ -46,104 +39,64 @@
     <!-- Sección principal -->
     <main>
         <div class="main-content">
-            <section class="main-form-container">
-                <h2>Explora y Comparte Recetas de Cocina</h2>
+            <section class="adm-main_menu">
+                <h2>Panel Administrativo</h2>
                 <div class="buttons-container">
-                    <button id="filterBtn" class="btn">Filtrar Recetas</button>
-                    <button id="addRecipeBtn" class="btn">Añadir Receta</button>
+                    <a href="./index.php?edit=recipes"><button class="btn">Editar Recetas</button></a>
+                    <a href="./index.php?edit=categories"><button class="btn">Editar Categorias</button></a>
                 </div>
-            </section>
-            <hr class="separator">
-            <section class="recipes">
-                <h2>Recetas</h2>
-                <?php
-                    if (!isset($_GET['filtered'])){
-                        if (!$vacio){
-                            print ('<div class="recipes-container">');
-                            foreach ($recipes as $recipe){
-                                // Guardar los datos en variables
-                                $ID = $recipe['Cod_receta'];
-                                $name = $recipe['nombre'];
-                                $description = $recipe['descripcion'];
-                                $categories = "";
-                                $categories = categorizar($ID);
-                                $thumbnail = $recipe['foto'];
-                                $pdf = $recipe['documento_pdf'];
-                                $time = $recipe['tiempo'];
-
-                                // Imprimir los datos
-                                print ('<article class="recipe" style="background-image: url('. $thumbnail .');">');
-                                if ($categories != ""){     // Etiquetas
-                                    print('<div class="recipe-categories">');
-                                        print('<div class="recipe-category"><img src="https://cdn-icons-png.flaticon.com/512/4007/4007511.png" width="20px"><span class="categorias-span">'. $categories .'</span></div>');
-                                    print('</div>');
-                                }
-                                print ('<div class="recipe-data">');
-                                    print ('<h4>'. $name .'</h4>');   // Titulo
-                                    print ('<p>'. $description .'</p>');     // Descripcion
-                                    print ('<div class="filapdf"><a href="'. $pdf .'" target="_blank"><button>Ver PDF</button></a><span>⏱️'.$time.'m</span></div>');
-                                print ('</div>');
-                                print ('</article>');
-                            } 
-                        } else {
-                            echo ("<h3 style='margin: auto'>No hay recetas para mostrar 😵‍💫</h3>");
-                        }
-                    } else {
-                        $filter = explode(",",$_GET['filter']);
-                        
-                        if ($filter == [""]){
-                            $coincidences = 0;
-                        } else {
-                            $coincidences = count($filter);
-                        }
-
-                        print('Filtro: Hubieron <b>'. $coincidences .'</b> recetas coincidientes');
-                        print ('<div class="recipes-container">');
-                            foreach ($recipes as $recipe){
-                                // Guardar los datos en variables
-                                $ID = $recipe['Cod_receta'];
-                                $name = $recipe['nombre'];
-                                $description = $recipe['descripcion'];
-                                $categories = "";
-                                $categories = categorizar($ID);
-                                $thumbnail = $recipe['foto'];
-                                $pdf = $recipe['documento_pdf'];
-                                $time = $recipe['tiempo'];
-
-                                // Comprobar que el ID coincida con el filtro
-                                if (in_array( $ID, $filter)){
-
-                                    // Imprimir los datos
-                                    print ('<article class="recipe" style="background-image: url('. $thumbnail .');">');
-                                if ($categories != ""){     // Etiquetas
-                                    print('<div class="recipe-categories">');
-                                        print('<div class="recipe-category"><img src="https://cdn-icons-png.flaticon.com/512/4007/4007511.png" width="20px"><span class="categorias-span">'. $categories .'</span></div>');
-                                    print('</div>');
-                                }
-                                print ('<div class="recipe-data">');
-                                    print ('<h4>'. $name .'</h4>');   // Titulo
-                                    print ('<p>'. $description .'</p>');     // Descripcion
-                                    print ('<div class="filapdf"><a href="'. $pdf .'" target="_blank"><button>Ver PDF</button></a><span>⏱️'.$time.'m</span></div>');
-                                print ('</div>');
-                                print ('</article>');
-                                }
-                            }
-                        }
-                ?>
-                </div>
-                <?php
-                    if (isset($_GET['filtered'])){
-                        print('<a href="index.php"><button class="btn" style="margin-top: 20px">Borrar Filtros</button></a>');
-                    }
-                ?>
             </section>
         </div>
+        <?php
+            if (isset($_GET['edit'])){
+                print ("<hr class='separator'>");
+                print ("<section class='crud'>");
+                if ($_GET['edit'] == "recipes"){
+                    print("<button onclick='openAddRecipeModal()' class='add'>Añadir</button>");
+                    if (!empty($recipes)){
+                        print ("<table border='2px'><thead><tr><th>ID</th><th>Nombre</th><th>Descripción</th><th>Ruta Imagen</th><th>Ruta PDF</th><th>Tiempo</th><th>Categorias</th><th>Editar</th><th>Eliminar</th></tr></thead>");
+                        print ("<tbody>");
+                        foreach ($recipes as $recipe){
+                            // Guardar los datos en variables
+                            $ID = $recipe['Cod_receta'];
+                            $name = $recipe['nombre'];
+                            $description = $recipe['descripcion'];
+                            $img_path = $recipe['foto'];
+                            $pdf_path = $recipe['documento_pdf'];
+                            $time = $recipe['tiempo'];
+                            $categories = "";
+                            $categories = categorizar($ID);
 
+                            // Imprimir los datos
+                            print ('<tr><td>'. $ID .'</td><td>'. $name .'</td><td>'. $description .'</td><td>'. $img_path .'</td><td>'. $pdf_path .'</td><td>'. $time .'</td><td>'. $categories .'</td><td><button>'. edit_icon() .'</button></td><td><a href="php/deleteRecipe.php?id=' . $ID . '"><button>' . delete_icon() .'</button></td></td></tr>');
+                        }
+                        print ("</tbody></table>");
+                    }
+                } else if ($_GET['edit'] == "categories"){
+                    print("<button onclick='openAddCategoryModal()' class='add'>Añadir</button>");
+                    if (!empty($categorias)){
+                        print ("<table border='2px'><thead><tr><th>Cod</th><th>Nombre</th><th>Descripción</th><th>Editar</th><th>Eliminar</th></tr></thead>");
+                        print ("<tbody>");
+                        foreach ($categorias as $categoria){
+                            // Guardar los datos en variables
+                            $cod = $categoria['Cod_categoria'];
+                            $name = $categoria['nombre'];
+                            $description = $categoria['descripcion'];
+
+                            // Imprimir los datos
+                            print ('<tr><td>'. $cod .'</td><td>'. $name .'</td><td>'. $description .'</td><td><a href="./php/editCategory?cat='. $cod .'"><button>'. edit_icon() .'</button></a></td><td><a href="php/deleteCategory.php?cod=' . $cod . '"><button>' . delete_icon() . '</button></a></td></tr>');
+                        }
+                        print ("</tbody></table>");
+                    }
+                }
+                print ("</section>");
+            }
+        ?>
         <!-- Modal para Añadir Receta -->
         <div id="addRecipeModal" class="modal">
             <div class="modal-content">
                 <h2>Añadir Nueva Receta</h2>
-                <form id="recipeForm" action="php/addRecipe.php" method="post" enctype="multipart/form-data">
+                <form id="recipeForm" action="./php/addRecipe.php" method="post" enctype="multipart/form-data">
                     <label for="recipeName">Nombre de la receta:</label>
                     <input type="text" id="recipeName" name="recipeName" required>
 
@@ -175,27 +128,35 @@
                 </form>
             </div>
         </div>
-
-        <!-- Modal para Filtrar Recetas -->
-        <div id="filterModal" class="modal">
+        <!-- Modal para Añadir Categoria -->
+        <div id="addCategoryModal" class="modal">
             <div class="modal-content">
-                <h2>Filtrar Recetas</h2>
-                <form id="filterForm" action="php/filterRecipes.php" method="post">
-                    <label for="nameFilter">Nombre:</label>
-                    <input type="text" id="nameFilter" name="nameFilter" placeholder="Ej. Tortilla de patatas">
+                <h2>Añadir Nueva Categoria</h2>
+                <form id="categoryForm" action="./php/addCategory.php" method="post" enctype="multipart/form-data">
+                    <label for="categoryName">Nombre de la categoria:</label>
+                    <input type="text" id="categoryName" name="categoryName" required>
 
-                    <label for="categoryFilter">Tipo(s):</label>
-                    <div class="category-container">
-                        <?php 
-                            foreach ($categorias as $categoria){
-                                print('<div class="add_category">');
-                                    print('<input type="checkbox" class="filterCategory" name="filterCategory[]" value="'. $categoria['Cod_categoria'] .'"><span>'. $categoria['nombre'] .'</span>');
-                                print('</div>');
-                            } 
-                        ?> 
-                    </div>
+                    <label for="categoryDescription">Descripción:</label>
+                    <textarea id="categoryDescription" name="categoryDescription" maxlength="60" required></textarea>
 
-                    <button type="submit" class="btn">Aplicar Filtros</button>
+                    <button type="submit" class="btn">Añadir Categoria</button>
+                </form>
+            </div>
+        </div>
+        <!-- Modal para Editar Categoria -->
+        <div id="editCategoryModal" class="modal">
+            <div class="modal-content">
+                <h2>Añadir Nueva Categoria</h2>
+                <form id="categoryForm" action="./php/editCategory.php" method="post" enctype="multipart/form-data">
+                    <input type="hidden" name="">
+
+                    <label for="categoryName">Nombre de la categoria:</label>
+                    <input type="text" id="categoryName" name="categoryName" value="<?php $id ?>" required>
+
+                    <label for="categoryDescription">Descripción:</label>
+                    <textarea id="categoryDescription" name="categoryDescription" maxlength="60" required></textarea>
+
+                    <button type="submit" class="btn">Añadir Categoria</button>
                 </form>
             </div>
         </div>
@@ -206,6 +167,6 @@
         <p>&copy; Recetas de cocina V2 by Dvix-dev - 2025 </p>
     </footer>
     
-    <script src="script.js"></script>
+    <script src="./script.js"></script>
 </body>
 </html>

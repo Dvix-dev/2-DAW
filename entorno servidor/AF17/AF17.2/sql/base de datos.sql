@@ -29,9 +29,23 @@ CREATE TABLE Recetas_Categorias (
 );
 
 -- Inserción de las categorías
-INSERT INTO Categoria (nombre, descripcion) VALUES
+INSERT INTO Categorias (nombre, descripcion) VALUES
 ('Verduras', 'Recetas con base de verduras.'),
 ('Arroces', 'Platos que tienen arroz como ingrediente principal.'),
 ('Guisos', 'Platos cocinados con caldos.'),
 ('Postres', 'Dulces y postres de todo tipo.'),
 ('Bebidas', 'Bebidas de todo tipo.');
+
+-- Inserción de recetas de ejemplo
+INSERT INTO Recetas (nombre, descripcion, foto, documento_pdf, tiempo) VALUES
+('Arroz con verduras', 'Un plato de arroz con verduras.', 'arroz_con_verduras.jpg', 'arroz_con_verduras.pdf', 30),
+('Gazpacho', 'Una sopa fría de tomate.', 'gazpacho.jpg', 'gazpacho.pdf', 15),
+('Tarta de manzana', 'Una tarta de manzana casera.', 'tarta_de_manzana.jpg', 'tarta_de_manzana.pdf', 60);
+
+-- Inserción de las categorias asociadas a las recetas
+INSERT INTO Recetas_Categorias (Cod_receta, Cod_categoria) VALUES
+(1, 2),
+(1, 1),
+(2, 1),
+(2, 3),
+(3, 4);
