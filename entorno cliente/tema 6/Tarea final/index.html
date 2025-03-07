@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta author="David Escutia de Haro">
+    <meta author="Dvix">
+    <link rel="shortcut icon" href="https://cdn-icons-png.flaticon.com/512/609/609982.png" type="image/x-icon">
+    <title>Gestor de Discos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="logo">
+            <h1>Gestor de Discos</h1>
+        </div>
+    </header>
+    
+    <!-- Seccion Principal -->
+    <h1>Gestionar Discos</h1>  
+
+    <ul id="lista-funciones">
+        <li><button onclick="mostrarNumeroDiscos()">Mostrar Número de Discos</button></li>
+        <li>Mostrar Número de Discos</li>
+        <li>Mostrar en Orden</li>
+        <li>Mostrar al Revés</li>
+        <li>Orden Alfabético</li>
+        <li>Borrar al Inicio</li>
+        <li>Borrar al Final</li>
+    </ul>
+
+    
+    <button class="funcionPrincipalBtn" onclick="mostrarListado('normal')">Mostrar en Orden</button>
+    <button class="funcionPrincipalBtn" onclick="mostrarListado('reves')">Mostrar al Revés</button>
+    <button class="funcionPrincipalBtn" onclick="mostrarListado('alfabetico')">Orden Alfabético</button>
+    <button class="funcionPrincipalBtn" onclick="borrarDisco(true)">Borrar al Inicio</button>
+    <button class="funcionPrincipalBtn" onclick="borrarDisco(false)">Borrar al Final</button>
+
+    <!-- Modal para imprimir el contenido -->
+    <div id="displayModal" class="modal">
+        <div class="modal-content">
+            <form id="añadir-disco">
+                <label for="nombre">Nombre del Disco:</label>
+                <input type="text" id="nombre" required>
+
+                <label for="grupo">Grupo o Cantante:</label>
+                <input type="text" id="grupo" required>
+
+                <label for="año">Año de Publicación:</label>
+                <input type="number" id="año" required>
+
+                <label for="tipo">Tipo de Música:</label>
+                <select id="tipo">
+                    <option value="rock">Rock</option>
+                    <option value="pop">Pop</option>
+                    <option value="punk">Punk</option>
+                    <option value="indie">Indie</option>
+                </select>
+
+                <label for="localizacion">Número de Estantería:</label>
+                <input type="number" id="localizacion" required>
+
+                <button type="submit">Añadir Disco</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; Gestor de Discos by Dvix-dev - 2025 </p>
+    </footer>
+
+    <script src="js/scmodals.js"></script>
+    <script src="js/disco.js"></script>
+</body>
+</html>
