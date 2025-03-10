@@ -16,12 +16,17 @@ body {
     min-height: 100vh;
 }
 
+a {
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+}
+
 /* Header */
 .header {
     background-color: #06a7bc;
     width: 100%;
     color: white;
-    padding: 20px 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -33,7 +38,7 @@ body {
     margin-left: 20px;
 }
 
-.header nav ul {
+.header nav > ul {
     list-style: none;
     display: flex;
     margin-right: 20px;
@@ -43,15 +48,135 @@ body {
     margin: 0 15px;
 }
 
-.header nav ul li a {
+.header > nav > ul > li > a {
     color: white;
     text-decoration: none;
     font-weight: 600;
     font-size: 1rem;
 }
 
-.header nav ul li a:hover {
-    text-decoration: underline;
+a.dropdown {
+    color: black;
+}
+
+
+div.mostrar-discos {
+    position: relative;
+}
+
+ul.mostrar-discos {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    color: black;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0px 0px 5px #aaa;
+    padding: 10px;
+    display: none;
+}
+
+div.mostrar-discos:hover ul.mostrar-discos {
+    display: flex;
+}
+
+ul li a:hover li {
+    filter: brightness(0.8);
+    background-color: blue;
+}
+
+.main_item-header {
+    display: inline-flex;
+    color: white;
+    gap: 6px;
+}
+
+.desplegable-icon {
+    rotate: 90deg;
+    transition: .4s;
+}
+
+.animation:hover .desplegable-icon {
+    rotate: 270deg;
+}
+
+.item {
+    position: relative;
+}
+
+.item:hover .item-ddwn {
+    display: block;
+}
+
+.item-ddwn {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: -10px;
+    width: 175px;
+    padding: 15px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px 0px black;
+    border-radius: 5px;
+}
+
+.item-ddwn > a {
+    color: black;
+}
+
+.item-ddwn > a:hover  {
+    color: #06a7bc;
+}
+
+.item-ddwn a:not(:last-of-type) {
+    margin-bottom: 5px;
+}
+
+.item-ddwn > div {
+    display: flex;
+    align-items: center;
+    height: 40px;
+    padding-inline: 15px;
+}
+
+.item-ddwn > div:hover {
+    background-color: hsl(0, 0%, 3%);
+    cursor: pointer;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
+}
+
+nav > div {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-inline: 20px;
+    transition: .3s;
+}
+
+nav > div:hover {
+    background-color: #0591a3;
+    cursor: pointer;
+}
+
+nav > a:last-of-type {
+    background-color: #f4ecda;
+    color: #353535;
+    padding: 10px;
+    border-radius: 5px;
+    transition: .4s;
+    margin-left: 5px;
+}
+
+nav > a:last-of-type:hover {
+    background-color: #c4b9a2;
 }
 
 /* Footer */
@@ -69,6 +194,32 @@ body {
 }
 
 /* Main */
+main {
+    display: flex;
+    height: 80vh;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#display {
+    display: flex;
+    flex-direction: column;
+    background-color: #fff;
+    padding: 20px 30px;
+    border-radius: 10px;
+    box-shadow: 0px 1px 10px #0000007d;
+    justify-content: center;
+    gap: 10px;
+    margin-block: 20px;
+    max-width: 900px;
+}
+
+#display > li {
+    list-style: none;
+    border: 1px solid #ccc;
+}
+
 h1, h2 {
     text-align: center;
 }
@@ -109,17 +260,17 @@ button:hover {
 ul {
     list-style: none;
     padding: 0;
-    max-width: 600px;
-    margin: auto;
 }
 
-li {
+li.info {
     background: white;
-    margin: 5px 0;
+    margin: 10px 0;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0px 0px 5px #aaa;
 }
+
+
 
 /* Modales */
 .modal {

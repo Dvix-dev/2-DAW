@@ -20,12 +20,20 @@ class Disco {
     }
 
     mostrarInformacion() {
-        return `Nombre: ${this.nombre}, Grupo: ${this.grupo}, Año: ${this.año}, Tipo: ${this.tipo}, Localización: ${this.localizacion}, Prestado: ${this.prestado}`;
+        return [this.nombre, this.grupo, this.año, this.tipo, this.localizacion, this.prestado];
     }
 }
 
+// Importar la clase Disco
+// import { Disco } from "./disco.js";
+
 // Definicion de variables globales
-let discos = [];
+let discos = [
+    new Disco("The Dark Side of the Moon", "Pink Floyd", 1973, "rock", 1),
+    new Disco("Abbey Road", "The Beatles", 1969, "rock", 2),
+    new Disco("Nevermind", "Nirvana", 1991, "punk", 3)
+];
+let display = document.querySelector('#display');
 
 // Funciones
 function agregarDisco(disco, alInicio = false) {
@@ -44,11 +52,11 @@ function borrarDisco(alInicio = false) {
     }
 }
 
-function mostrarNumeroDiscos() {
+function numeroDiscos() {
     alert(`Número total de discos: ${discos.length}`);
 }
 
-function mostrarListado(orden) {
+function listarDiscos(orden) {
     let lista;
     switch (orden) {
         case "normal":
@@ -64,11 +72,6 @@ function mostrarListado(orden) {
     actualizarLista(lista);
 }
 
-function mostrarIntervalo(inicio, fin) {
-    let intervalo = discos.slice(inicio, fin + 1);
-    actualizarLista(intervalo);
-}
-
 function consultarDisco(criterio, valor) {
     let resultado;
     if (criterio === "posicion") {
@@ -77,16 +80,17 @@ function consultarDisco(criterio, valor) {
         resultado = discos.find(disco => disco.nombre.toLowerCase() === valor.toLowerCase());
         resultado = resultado ? resultado.mostrarInformacion() : "No encontrado";
     }
-    alert(resultado);
+    
+    display.innerHTML = resultado;
 }
 
 function actualizarLista(lista = discos) {
     const contenedor = document.getElementById("lista-discos");
-    contenedor.innerHTML = "";
+    display.innerHTML = "";
     lista.forEach(disco => {
         let item = document.createElement("li");
         item.textContent = disco.mostrarInformacion();
-        contenedor.appendChild(item);
+        display.appendChild(item);
     });
 }
 

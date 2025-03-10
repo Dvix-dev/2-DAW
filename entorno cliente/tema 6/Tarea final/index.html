@@ -16,27 +16,41 @@
         <div class="logo">
             <h1>Gestor de Discos</h1>
         </div>
+        <nav>
+            <div onclick="numeroDiscos()" class="main_item-header"><a>Nº Discos</a></div>
+            <div class="item animation">
+                <a onclick="listarDiscos()"><div class="main_item-header"><div>Listar discos</div><div class="desplegable-icon"> &gt;</div></div></a>
+                <div class="item-ddwn">
+                    <a onclick="listarDiscos()"><div>Al revés</div></a>
+                    <a onclick="listarDiscos()"><div>Orden alfabético</div></a>
+                </div>
+            </div>
+            <div onclick="numeroDiscos()" class="main_item-header"><a>Añadir Disco</a></div>
+            <div class="item animation">
+                <a><div class="main_item-header"><div>Borrar Disco</div><div class="desplegable-icon"> &gt;</div></div></a>
+                <div class="item-ddwn">
+                    <a><div>Al principio</div></a>
+                    <a><div>Al final</div></a>
+                </div>
+            </div>
+            <div onclick="numeroDiscos()" class="main_item-header"><a>Consultar Disco</a></div>
+        </nav>
     </header>
     
     <!-- Seccion Principal -->
-    <h1>Gestionar Discos</h1>  
-
-    <ul id="lista-funciones">
-        <li><button onclick="mostrarNumeroDiscos()">Mostrar Número de Discos</button></li>
-        <li>Mostrar Número de Discos</li>
-        <li>Mostrar en Orden</li>
-        <li>Mostrar al Revés</li>
-        <li>Orden Alfabético</li>
-        <li>Borrar al Inicio</li>
-        <li>Borrar al Final</li>
-    </ul>
-
+    <main>
+        <div id="display">
+            <h1>Gestor de Discos - David Escutia de Haro</h1>
+            <p style="text-align: justify;">Para comenzar a usar el <b>Gestor de Discos</b> hay que <i>hacer click</i> en cualquiera de los botones de la <i>barra de navegacion superior</i>. El array de discos ya cuenta por defecto con algunos discos para facilitar las pruebas.</p>
+        </div>
+    </main>
+    <!-- <h1>Gestionar Discos</h1>  
     
     <button class="funcionPrincipalBtn" onclick="mostrarListado('normal')">Mostrar en Orden</button>
     <button class="funcionPrincipalBtn" onclick="mostrarListado('reves')">Mostrar al Revés</button>
     <button class="funcionPrincipalBtn" onclick="mostrarListado('alfabetico')">Orden Alfabético</button>
     <button class="funcionPrincipalBtn" onclick="borrarDisco(true)">Borrar al Inicio</button>
-    <button class="funcionPrincipalBtn" onclick="borrarDisco(false)">Borrar al Final</button>
+    <button class="funcionPrincipalBtn" onclick="borrarDisco(false)">Borrar al Final</button> -->
 
     <!-- Modal para imprimir el contenido -->
     <div id="displayModal" class="modal">
@@ -72,7 +86,7 @@
         <p>&copy; Gestor de Discos by Dvix-dev - 2025 </p>
     </footer>
 
-    <script src="js/scmodals.js"></script>
-    <script src="js/disco.js"></script>
+    <script src="js/funciones.js"></script>
+    <script src="js/modals.js"></script>
 </body>
 </html>
