@@ -20,91 +20,131 @@ class Disco {
     }
 
     mostrarInformacion() {
-        return [this.nombre, this.grupo, this.año, this.tipo, this.localizacion, this.prestado];
+        let prestado = this.prestado ? "Si" : "No";
+        return `<b>Canción:</b> ${this.nombre} - ${this.grupo} <br><b>Año:</b> ${this.año} - <b>Tipo:</b> ${this.tipo} - <b>Estanteria:</b> ${this.localizacion} - <b>Prestado:</b> ${prestado}`;
     }
 }
 
-// Importar la clase Disco
-// import { Disco } from "./disco.js";
-
 // Definicion de variables globales
 let discos = [
-    new Disco("The Dark Side of the Moon", "Pink Floyd", 1973, "rock", 1),
-    new Disco("Abbey Road", "The Beatles", 1969, "rock", 2),
-    new Disco("Nevermind", "Nirvana", 1991, "punk", 3)
+    new Disco("Gran Via", "Quevedo, Aitana", 2025, "pop", 2),
+    new Disco("Animal in Me", "Solence", 2020, "rock", 2),
+    new Disco("Waiting For Love", "Avicii", 2015, "pop", 1),
+    new Disco("Why Worry", "Set It Off", 2014, "punk", 3)
 ];
+
 let display = document.querySelector('#display');
+let titulo = document.createElement("h2");
 
 // Funciones
-function agregarDisco(disco, alInicio = false) {
-    if (alInicio) {
+function agregarDisco(disco, inicio) {
+    const addModal = document.querySelector("#displayAddModal");
+    let lista = discos;
+    if (inicio) {
         discos.unshift(disco);
     } else {
         discos.push(disco);
     }
-    actualizarLista();
+    actualizarLista(lista, "Disco añadido " + (inicio ? "al inicio" : "al final"));
+    addModal.style.display = "none";
 }
 
-function borrarDisco(alInicio = false) {
+function borrarDisco(inicio) {
     if (discos.length > 0) {
-        alInicio ? discos.shift() : discos.pop();
-        actualizarLista();
+        inicio ? discos.shift() : discos.pop();
+        actualizarLista(discos, "Disco eliminado " + (inicio ? "del inicio" : "del final"));
     }
 }
 
 function numeroDiscos() {
-    alert(`Número total de discos: ${discos.length}`);
+    display.innerHTML = "";
+    let info = document.createElement("p");
+    titulo.innerText = "Número de discos";
+    info.innerText = `Número total de discos: ${discos.length}`;
+    display.appendChild(titulo);
+    display.appendChild(info);
+
 }
 
 function listarDiscos(orden) {
     let lista;
+    let titulo = "Listado de discos por orden " + orden;
     switch (orden) {
-        case "normal":
+        case "default":
             lista = discos;
             break;
-        case "reves":
-            lista = [...discos].reverse();
+        case "inverso":
+            lista = discos.reverse();
             break;
         case "alfabetico":
-            lista = [...discos].sort((a, b) => a.nombre.localeCompare(b.nombre));
+            lista = discos.sort((primero, segundo) => primero.nombre.localeCompare(segundo.nombre));
             break;
     }
-    actualizarLista(lista);
+    actualizarLista(lista, titulo);
 }
 
-function consultarDisco(criterio, valor) {
+function consultarDisco(consulta, input) {
+    const checkModal = document.querySelector("#displayCheckModal");
     let resultado;
-    if (criterio === "posicion") {
-        resultado = discos[valor] ? discos[valor].mostrarInformacion() : "No encontrado";
+    let item = document.createElement("li");
+    titulo.innerText = "Consulta de discos por " + consulta + " \"" + input + "\"";
+    
+    if (consulta === "posicion") {
+        input = Number(input);
+        input -= 1;
+        console.log(input);
+        resultado = discos[input] ? discos[input].mostrarInformacion() : "No hay ningún disco en esa posición";
     } else {
-        resultado = discos.find(disco => disco.nombre.toLowerCase() === valor.toLowerCase());
-        resultado = resultado ? resultado.mostrarInformacion() : "No encontrado";
+        resultado = discos.find(disco => disco.nombre.toLowerCase() === input.toLowerCase());
+        resultado = resultado ? resultado.mostrarInformacion() : "No hay ningún disco con ese nombre";
     }
     
-    display.innerHTML = resultado;
+    item.classList.add("info");
+    item.innerHTML = resultado;
+    
+    display.innerHTML = "";
+    display.appendChild(titulo);
+    display.appendChild(item);
+    checkModal.style.display = "none";
 }
 
-function actualizarLista(lista = discos) {
-    const contenedor = document.getElementById("lista-discos");
+function actualizarLista(lista = discos, funcion) {
     display.innerHTML = "";
+    titulo.innerText = funcion;
+    display.appendChild(titulo);
     lista.forEach(disco => {
         let item = document.createElement("li");
-        item.textContent = disco.mostrarInformacion();
+        item.classList.add("info");
+        item.innerHTML = disco.mostrarInformacion();
         display.appendChild(item);
     });
 }
 
 // Evento de formulario para agregar discos
 document.addEventListener("DOMContentLoaded", () => {
-    document.querySelector("#form-disco").addEventListener("submit", function (e) {
+    document.querySelector("#añadir-disco").addEventListener("submit", function (e) {
         e.preventDefault();
-        let nombre = document.getElementById("nombre").value;
-        let grupo = document.getElementById("grupo").value;
-        let año = document.getElementById("año").value;
-        let tipo = document.getElementById("tipo").value;
-        let localizacion = document.getElementById("localizacion").value;
+        let nombre = document.querySelector("#nombre").value;
+        let grupo = document.querySelector("#grupo").value;
+        let año = document.querySelector("#año").value;
+        let tipo = document.querySelector("#tipo").value;
+        let localizacion = document.querySelector("#localizacion").value;
+        let donde = document.querySelector("#donde").value;
+
+        donde === "principio" ? inicio = true : inicio = false;
+        
         let nuevoDisco = new Disco(nombre, grupo, año, tipo, localizacion);
-        agregarDisco(nuevoDisco);
-        this.reset();
+        agregarDisco(nuevoDisco, inicio);
+    });
+});
+
+// Evento de formulario para consultar discos
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelector("#consultar-disco").addEventListener("submit", function (e) {
+        e.preventDefault();
+        let input = document.querySelector("#input").value;
+        let consulta = document.querySelector("#consulta").value;
+
+        consultarDisco(consulta, input);
     });
 });

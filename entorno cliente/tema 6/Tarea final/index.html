@@ -19,21 +19,21 @@
         <nav>
             <div onclick="numeroDiscos()" class="main_item-header"><a>Nº Discos</a></div>
             <div class="item animation">
-                <a onclick="listarDiscos()"><div class="main_item-header"><div>Listar discos</div><div class="desplegable-icon"> &gt;</div></div></a>
+                <a onclick="listarDiscos('default')"><div class="main_item-header"><div>Listar discos</div><div class="desplegable-icon"> &gt;</div></div></a>
                 <div class="item-ddwn">
-                    <a onclick="listarDiscos()"><div>Al revés</div></a>
-                    <a onclick="listarDiscos()"><div>Orden alfabético</div></a>
+                    <a onclick="listarDiscos('inverso')"><div>Al revés</div></a>
+                    <a onclick="listarDiscos('alfabetico')"><div>Orden alfabético</div></a>
                 </div>
             </div>
-            <div onclick="numeroDiscos()" class="main_item-header"><a>Añadir Disco</a></div>
+            <div id="añadirDisco-btn" class="main_item-header"><a>Añadir Disco</a></div>
             <div class="item animation">
-                <a><div class="main_item-header"><div>Borrar Disco</div><div class="desplegable-icon"> &gt;</div></div></a>
+                <a onclick="alert('Para borrar un disco hay que especificar, usando alguna de las opciones del desplegable')"><div class="main_item-header"><div>Borrar Disco</div><div class="desplegable-icon"> &gt;</div></div></a>
                 <div class="item-ddwn">
-                    <a><div>Al principio</div></a>
-                    <a><div>Al final</div></a>
+                    <a onclick="borrarDisco(true)"><div>Al principio</div></a>
+                    <a onclick="borrarDisco(false)"><div>Al final</div></a>
                 </div>
             </div>
-            <div onclick="numeroDiscos()" class="main_item-header"><a>Consultar Disco</a></div>
+            <div id="consultarDisco-btn" class="main_item-header"><a>Consultar Disco</a></div>
         </nav>
     </header>
     
@@ -44,39 +44,60 @@
             <p style="text-align: justify;">Para comenzar a usar el <b>Gestor de Discos</b> hay que <i>hacer click</i> en cualquiera de los botones de la <i>barra de navegacion superior</i>. El array de discos ya cuenta por defecto con algunos discos para facilitar las pruebas.</p>
         </div>
     </main>
-    <!-- <h1>Gestionar Discos</h1>  
-    
-    <button class="funcionPrincipalBtn" onclick="mostrarListado('normal')">Mostrar en Orden</button>
-    <button class="funcionPrincipalBtn" onclick="mostrarListado('reves')">Mostrar al Revés</button>
-    <button class="funcionPrincipalBtn" onclick="mostrarListado('alfabetico')">Orden Alfabético</button>
-    <button class="funcionPrincipalBtn" onclick="borrarDisco(true)">Borrar al Inicio</button>
-    <button class="funcionPrincipalBtn" onclick="borrarDisco(false)">Borrar al Final</button> -->
 
-    <!-- Modal para imprimir el contenido -->
-    <div id="displayModal" class="modal">
+    <!-- Modal para añadir discos -->
+    <div id="displayAddModal" class="modal">
         <div class="modal-content">
+            <h1>Añadir Disco</h1>
             <form id="añadir-disco">
-                <label for="nombre">Nombre del Disco:</label>
+                <label for="nombre">Nombre del Disco *</label>
                 <input type="text" id="nombre" required>
 
-                <label for="grupo">Grupo o Cantante:</label>
+                <label for="grupo">Grupo o Cantante *</label>
                 <input type="text" id="grupo" required>
 
-                <label for="año">Año de Publicación:</label>
+                <label for="año">Año de Publicación *</label>
                 <input type="number" id="año" required>
 
-                <label for="tipo">Tipo de Música:</label>
-                <select id="tipo">
+                <label for="tipo">Tipo de Música *</label>
+                <select id="tipo" required>
+                    <option disabled selected value="">-- Seleccione una opción --</option>
                     <option value="rock">Rock</option>
                     <option value="pop">Pop</option>
                     <option value="punk">Punk</option>
                     <option value="indie">Indie</option>
                 </select>
-
-                <label for="localizacion">Número de Estantería:</label>
+                
+                <label for="localizacion">Número de Estantería *</label>
                 <input type="number" id="localizacion" required>
 
+                <label for="donde">Añadir el disco *</label>
+                <select id="donde" required>
+                    <option disabled selected value="">-- Seleccione una opción --</option>
+                    <option value="principio">Al inicio</option>
+                    <option value="final">Al final</option>
+                </select>
+
                 <button type="submit">Añadir Disco</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal para consultar discos -->
+    <div id="displayCheckModal" class="modal">
+        <div class="modal-content">
+            <form id="consultar-disco">
+                <label for="input">Consulta de disco *</label>
+                <input type="text" id="input" required>
+
+                <label for="consulta">Consultar por *</label>
+                <select id="consulta" required>
+                    <option disabled selected value="">-- Seleccione una opción --</option>
+                    <option value="posicion">Posición</option>
+                    <option value="nombre">Nombre</option>
+                </select>
+
+                <button type="submit">Consultar Disco</button>
             </form>
         </div>
     </div>

@@ -224,17 +224,6 @@ h1, h2 {
     text-align: center;
 }
 
-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    margin: auto;
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px #aaa;
-}
-
 label {
     margin-top: 10px;
 }
@@ -264,7 +253,6 @@ ul {
 
 li.info {
     background: white;
-    margin: 10px 0;
     padding: 10px;
     border-radius: 5px;
     box-shadow: 0px 0px 5px #aaa;
@@ -281,7 +269,7 @@ li.info {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0, 0, 0, 0.7);
     justify-content: center;
     align-items: center;
 }
@@ -308,7 +296,7 @@ label {
     font-weight: 600;
 }
 
-input, textarea, select ,.category-container {
+input, select {
     padding: 12px;
     margin-bottom: 20px;
     border: 1px solid #ccc;
@@ -316,22 +304,8 @@ input, textarea, select ,.category-container {
     font-size: 1rem;
 }
 
-textarea {
-    resize: vertical;
-    min-height: 80px;
-    max-height: 140px;
-}
-
-.add_category {
-    display: flex;
-    gap: 8px;
-    margin-left: 20px;
-    flex-direction: row;
-    align-items: baseline;
-}
-
 button[type="submit"] {
-    background-color: #2a9d8f;
+    background-color: #06a7bc;
     color: white;
     padding: 15px;
     border: none;
@@ -341,5 +315,5 @@ button[type="submit"] {
 }
 
 button[type="submit"]:hover {
-    background-color: #264653;
+    background-color: #0591a3;
 }
